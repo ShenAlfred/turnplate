@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/commond.css">
+    <link rel="stylesheet" href="./styles/style1.css">
+    <link rel="stylesheet" href="./styles/turn.css">
+</head>
+<body>
+
+    <div class="turntable-pop">
+        <div class="turntable-warp" id="turntable-warp">
+            <canvas id="canvas" width="200" height="200"></canvas>
+            <img class="turntable_bg" src="../image/turntable_bg.png" alt="">
+            <div class="chou-btn" id="choujiang"></div>
+            <div class="pointer"></div>
+        </div>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/turntable.js"></script>
+    <script src="./js/awardRotate.js"></script>
+    <script>
+    
+        $(function() {
+        
+            var _turntable = new turntable();
+            _turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费"];
+
+            _turntable.init();
+
+            $("#choujiang").on('click',function() {
+                if(_turntable.bRotate) return;
+                _turntable.bRotate = !_turntable.bRotate;
+                var item = rnd(1,_turntable.restaraunts.length);
+                _turntable.rotateFn(item, _turntable.restaraunts[item-1]);
+            });
+
+        });  
+
+    </script>
+</body>
+</html>

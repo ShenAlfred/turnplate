@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/commond.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/turn.css">
+</head>
+<body class="newyear">
+    <img src="../image/bg.jpg" class="bg1" alt="">
+    <div class="warp">
+
+        <!-- 下金币雨 -->
+        <div class="golds">
+            <img src="../image/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+            <img src="../image/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+            <img src="../image/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+            <img src="../image/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+            <img src="../image/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+            <img src="../image/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+            <img src="../image/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+            <img src="../image/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+        </div>
+
+        <!-- 大标题 -->
+        <img class="title" src="../image/title.png" alt="" />
+
+        <!-- 倒计时 -->
+        <div class="count_down-warp">
+            还有
+            <div class="cd-item day">
+                5
+            </div>
+            天
+            <div class="cd-item hours">
+                22
+            </div>
+            时
+            <div class="cd-item minutes">
+                18
+            </div>
+            分
+            <div class="cd-item second">
+                30
+            </div>
+            秒结束
+        </div>
+        <!-- 提示语 -->
+        <div class="tips" style="display: none;">
+            tip:活动将于****年/**月/**日**：**开始，敬请期待
+        </div>
+        <div class="tips">
+            <div class="zj-list">
+                <ul>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 操作按钮组 -->
+        <div class="btn_group">
+            <img src="../image/left_btn.png" class="left-btn fl"/>
+            <img src="../image/right_btn.png" class="right-btn fr"/>
+        </div>
+        <!-- 抽奖次数、积点显示 -->
+        <div class="point-number">
+            <span>可用积点</span><span class="pt">3000000</span>
+            <span>剩余机会:</span><span class="nu">8</span>
+            <span>次</span>
+        </div>
+        <!-- 大转盘 -->
+        <div class="turntable-warp" id="turntable-warp">
+            <canvas id="canvas" width="200" height="200"></canvas>
+            <img class="turntable_bg" src="../image/turntable_bg.png" alt="">
+            <div class="chou-btn" id="choujiang"></div>
+            <div class="pointer"></div>
+            <img src="../image/money_god.png" class="another">
+        </div>
+
+        <!-- 不能参与提示语 -->
+        <div class="tip2">
+            <div class="unjoin_tips">
+                您不在本次活动对象内，不能参加活动哦，谢谢关注！
+            </div>
+            <div class="pt_unenough">
+                您的积点不足
+            </div>
+        </div>
+
+        <!-- 历史记录 -->
+        <div class="history-list">
+            <div class="click-area click-able">
+                <span style="vertical-align: middle;">历史参与记录</span>
+                <i class="arrow"></i>
+            </div>
+            <div class="history-list-warp">
+                <div class="hl-th">
+                    <div class="prize-order">序号</div>
+                    <div class="prize-name">获得奖品</div>
+                    <div class="prize-time">抽奖时间</div>
+                    <div class="prize-pt">消耗积点</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="shadow" style="display: none;"></div>
+    <!-- 活动规则 -->
+    <div id="active_pop" class="pop" style="display: none;">
+        <div class="p-header">
+            活动规则
+            <i id="active_close" class="close"></i>
+        </div>
+        <div class="p-content">
+            <article class="content">
+                活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则
+            </article>
+        </div>
+    </div>
+    <!-- 我的奖品 -->
+    <div id="prize_pop" class="pop" style="display: none;">
+        <div class="p-header">
+            我的奖品
+            <i id="prize_close" class="close"></i>
+        </div>
+        <div class="p-content">
+            <article class="content-list">
+                <div class="cl-item">
+                    <img src="" class="fl">
+                    <div class="cl-i-n fr">50积点</div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!-- 未中奖 -->
+    <div id="np_pop" class="no-prize" style="display: none;"><i id="np_close" class="np-close"></i></div>
+
+    <!-- 中奖了 -->
+    <div id="lottery_pop" class="lottery" style="display: none;">
+        <img id="lottery-icon" src="" />
+        <div>恭喜抽中50元京东卡</div>
+        <i id="lottery_close" class="lottery-close"></i>
+    </div>
+
+
+    <!-- 验证输入 -->
+    <div id="validate_pop" class="pop lg validate_pop" style="display: none;">
+        <i id="validate_close" class="close_1 validate_close"></i>
+        <form class="form-content">
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="phoneNumber">请输入手机号</label>
+                    <div id="phoneNumber_error" class="error_tips">请输入<span>正确的</span>手机号</div>
+                </div>
+                <input type="number" class="opcity-input" id="phoneNumber" placeholder="请输入手机号"/>
+            </div>  
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="msgCode">请输入短信验证码</label>
+                    <div id="msgCode_error" class="error_tips">请输入<span>正确的</span>短信验证码</div>
+                </div>
+                <input type="number" class="opcity-input" id="msgCode" placeholder="请输入短信验证码"/>
+                <a href="javascript:;" id="sendMsgCode" class="msgCode_btn">点击发送</a>
+            </div> 
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="imgCode">请输入图形验证码</label>
+                    <div id="imgCode_error" class="error_tips">请输入<span>正确的</span>图形验证码</div>
+                </div>
+                <input type="text" class="opcity-input" id="imgCode" placeholder="请输入图形验证码"/>
+                <img src="" class="imgCode_img" />
+            </div>  
+        </form>
+        <a href="javascript:;" class="validate_btn" id="validate_btn">提交</a>
+    </div>
+
+    <!-- 当手机号对应多个客户信息时，再提示客户证件号验证 -->
+    <div id="validate_pop1" class="pop sm validate_pop" style="display: none;">
+        <i id="validate_close" class="close_1 validate_close"></i>
+        <form class="form-content">
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="idNumber">请输入证件号</label>
+                    <div id="idNumber_error" class="error_tips">请输入<span>正确的</span>证件号</div>
+                </div>
+                <input type="number" class="opcity-input" id="idNumber" placeholder="请输入证件号"/>
+            </div>
+        </form>  
+        <a href="javascript:;" class="validate_btn" id="validate_btn1">提交</a>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/leftTime.js"></script>
+    <script src="./js/awardRotate.js"></script>
+    <script>
+        $(function() {
+
+            /************************  验证   ****************************/
+
+            var phonereg = /^[1][3,4,5,7,8][0-9]{9}$/;
+            var isSendMsgCode = false;                      //是否发送过短信验证码
+            var Validate = new Array(3);
+            var isValidate = false;
+            
+
+            //验证手机号码
+            $("#phoneNumber").on('blur', function() {
+                var val = $(this).val(),
+                    id = $(this).attr('id');
+                if(!phonereg.test(val)) {
+                    $(this).parent().addClass('error');
+                    Validate[0] = 0;
+                }else {
+                    $(this).parent().removeClass('error');
+                    Validate[0] = 1;
+                }
+
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+            
+            //发送短信验证码
+            $("#sendMsgCode").on('click', function() {
+                var msgCode = this;
+                isSendMsgCode = true;
+                $.leftTime(20,function(d){
+                    if(d.status) {
+                        $(msgCode).text(parseInt(d.m)*60+parseInt(d.s)+"s");
+                    }else {
+                        $(msgCode).text('重新发送');
+                    }
+                });
+            });
+
+            //验证短信验证码
+            $("#msgCode").on('blur', function(){
+                Validate[1] = 1;
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+
+            //验证图形验证码
+            $("#imgCode").on('blur', function() {
+                Validate[2] = 1;
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+
+            
+            var idIsValidate = false; 
+            $("#idNumber").on('blur', function() {
+                idIsValidate = true;
+                if(idIsValidate) {
+                    $(this).parent().removeClass('error');
+                    $("#validate_btn1").addClass('enable');
+                }else {
+                    $(this).parent().addClass('error');
+                    $("#validate_btn1").removeClass('enable');
+                }
+            });
+
+
+            $("#validate_btn").on('click', function() {
+                console.log('提交数据! 11111');
+            });
+
+            $("#validate_btn1").on('click', function() {
+                console.log('提交数据! 22222');
+            });
+
+            $(".validate_close").on('click', function() {
+                $(".validate_pop").hide();
+                $(".shadow").hide();
+            });
+
+            /************************  验证   ****************************/
+
+            /************************   中奖名单无缝滚动   **********************/
+
+            var $zj_list_container = $(".zj-list"),
+                $zj_ul = $zj_list_container.find('ul'),
+                $li_height = $zj_ul.find('li').eq(0).height(),
+                total_height = $li_height * 5,
+                zj_index = 0;
+
+                $zj_ul.css({
+                    height: total_height
+                });
+
+                function zjscroll() {
+                    $zj_ul.stop().animate({
+                        top: -zj_index * $li_height
+                    }, 400, function() {
+                        if(zj_index == $zj_ul.children().length -1) {
+                            $zj_ul.css({top:0});
+                            zj_index = 0;
+                        }
+                    });
+                }
+                
+                function next() {
+                    zj_index++;
+                    if(zj_index > $zj_ul.children().length - 1) {
+                        zj_index = 0;
+                    }
+                    zjscroll();
+                }
+                
+                setInterval(next,3000);
+              
+            /************************   中奖名单无缝滚动   **********************/
+
+
+            /*********************   倒计时     **************************/
+            var endTime = new Date('2018/10/29 22:20:00');
+
+            $.leftTime(endTime.getTime(),function(d){
+                if(d.status){
+                    $(".day").html(d.d);
+                    $(".hours").html(d.h);
+                    $(".minutes").html(d.m);
+                    $(".second").html(d.s);
+                }else {
+                    console.log("活动开始")
+                }
+            });
+            /*********************   倒计时     **************************/
+            
+
+            /*****************************    弹框事件    ************************/
+            //活动规则关闭
+            $("#active_close").on('click', function() {
+                $("#active_pop").hide();
+                $(".shadow").hide();
+            });
+            //我的奖品关闭
+            $("#prize_close").on('click', function() {
+                $("#prize_pop").hide();
+                $(".shadow").hide();
+            });
+            //未中奖关闭
+            $("#np_close").on('click', function() {
+                $("#np_pop").hide();
+                $(".shadow").hide();
+            });
+            //中奖关闭
+            $("#lottery_close").on('click', function() {
+                $("#lottery_pop").hide();
+                $(".shadow").hide();
+            });
+            /*****************************    弹框事件    ************************/
+
+
+            //中奖后加载对应中奖图片
+            var img = new Image();
+            //img.src = './image/package.png';
+            img.src = './image/yb.png';
+            //img.src = './image/card.png';
+            img.onload = function() {
+                $("#lottery-icon").attr('src', this.src);
+            }
+            
+
+            /******************************   抽奖大转盘     ************************************/
+            var turnplate = {
+                restaraunts: [],
+                big_textRadius: 300,    
+                small_textRadius: 300,
+                bRotate: false
+            };
+            
+            // 解决手机上显示出现的毛边
+            var scale = 6;
+            //16
+            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点',"$80", '100积点',"$80", '100积点'];
+            //14
+            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点',"$80", '100积点'];
+            //12
+            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点'];
+            //10
+            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip", '红包', '元宝'];
+            //8
+            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip"];
+            //6
+            turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费"];
+            
+            var turntable = {
+                big_circle_data: [],
+                small_circle_data: [],
+                init: function() {
+                    var turntable_warp = $("#turntable-warp");
+                    var canvas = $("#canvas");
+                    var $canvas = document.getElementById("canvas");
+                    var ctx = canvas[0].getContext("2d");
+                    var that = this;
+                    $canvas.width = $canvas.width * scale;
+                    $canvas.height = $canvas.height * scale;
+
+                    this.handleRestarauntsData();
+                    this.drawTurntableWheel(ctx);
+
+                    var custom_angle = 0;
+                    if(turnplate.restaraunts.length == 6) {
+                        custom_angle = 0;
+                    }else if(turnplate.restaraunts.length == 8) {
+                        custom_angle = 68;
+                    }else if(turnplate.restaraunts.length == 10) {
+                        custom_angle = 35;
+                    }else {
+                        custom_angle = 0;
+                    }
+                    canvas.rotate({
+                        angle: custom_angle
+                    });
+
+                    $("#choujiang").on('click',function() {
+                        if(turnplate.bRotate) return;
+                        turnplate.bRotate = !turnplate.bRotate;
+                        var item = rnd(1,turnplate.restaraunts.length);
+                        that.rotateFn(item, turnplate.restaraunts[item-1]);
+                    });
+                },
+                rotateFn: function (item, txt){
+                    var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length*2));
+                    if(angles<270){
+                        angles = 270 - angles; 
+                    }else{
+                        angles = 360 - angles + 270;
+                    }
+                    $("#canvas").stopRotate();
+                    $("#canvas").rotate({
+                        angle: 0,
+                        animateTo:angles+7200,
+                        duration: 5000,
+                        callback:function (){
+                            console.log(txt);
+                            turnplate.bRotate = !turnplate.bRotate;
+                            console.log(turnplate.bRotate)
+                        }
+                    });
+                },
+                //处理奖品数据(分割两个数组)
+                handleRestarauntsData: function() {
+                    for(var k=0; k<turnplate.restaraunts.length; k++) {
+                        if(k%2 == 0) {
+                            this.big_circle_data.push(turnplate.restaraunts[k]);
+                            this.small_circle_data.push("");
+                        }else {
+                            this.big_circle_data.push("");
+                            this.small_circle_data.push(turnplate.restaraunts[k]);
+                        }
+                    }
+                },
+                //画转盘
+                drawTurntableWheel: function(ctx) {
+                    var arc = Math.PI / (turnplate.restaraunts.length/2);
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.strokeStyle = "transparent";
+                    var center = canvas.width/2;
+                    var that = this;
+                    
+
+                    //圆的容器（包含小圆和大圆）
+                    ctx.fillStyle = "transparent";
+                    ctx.beginPath();
+                    ctx.arc(center,center,center-15*scale,0,2*Math.PI);
+                    ctx.stroke();
+                    ctx.fill();
+                    
+                    //小圆的渐变色
+                    var small_grd=ctx.createRadialGradient(center,center,0,center,center,center-25);
+                    small_grd.addColorStop(0,"#fff");
+                    small_grd.addColorStop(0.7,"#fff");
+                    small_grd.addColorStop(1,"#fff2bc");
+                    ctx.fillStyle = small_grd;
+                    //小圆
+                    for(var i=0;i<that.small_circle_data.length; i++) {
+                        if(that.small_circle_data[i]) {
+                            var angle = 0 + i * arc;
+                            ctx.beginPath();
+                            ctx.arc(center, center, center-15*scale, angle, angle + arc, false);
+                            ctx.arc(center, center, 0, angle + arc, angle, true);
+                            ctx.stroke();
+                            ctx.fill();
+                            ctx.save(); 
+                            ctx.fillStyle = "#ff5122";
+                            if(turnplate.restaraunts.length == 6){
+                                ctx.font=16*scale/1.5 + "px Calibri";
+                            }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
+                                ctx.font=14*scale/1.5 + "px Calibri";
+                            }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
+                                ctx.font=12*scale/1.5 + "px Calibri";
+                            }else {
+                                ctx.font=12*scale/1.5 + "px Calibri";
+                            }
+                            var text = that.small_circle_data[i];
+                            var line_height = 17;
+                            if(turnplate.restaraunts.length == 6){
+                                ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
+                                ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                            }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
+                                ctx.translate(center + Math.cos(angle + arc / 1.7) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                ctx.rotate(angle + arc/2);
+                            }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
+                                ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                ctx.rotate(angle + arc/2);
+                            }else {
+                                ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                ctx.rotate(angle + arc/2);
+                            }
+                            ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                            ctx.restore();
+                        }
+                    }
+
+                    //大圆的渐变色
+                    var big_grd=ctx.createRadialGradient(center,center,0,center,center,center-18);
+                    big_grd.addColorStop(0,"#FF7A4B");
+                    big_grd.addColorStop(0.5,"#FFBA00");
+                    big_grd.addColorStop(1,"#FFD4B4");
+                    ctx.fillStyle = big_grd;
+
+                    //大圆阴影
+                    ctx.shadowOffsetX = 0; // 阴影Y轴偏移
+                    ctx.shadowOffsetY = 0; // 阴影X轴偏移
+                    ctx.shadowBlur = 30; // 模糊尺寸
+                    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // 颜色
+                    // //大圆
+                    for(var i=0;i<that.big_circle_data.length; i++) {
+                        if(that.big_circle_data[i]) {
+                            var angle = 0 + i * arc;
+                            ctx.beginPath();
+                            ctx.arc(center, center, center-12*scale, angle, angle + arc, false);
+                            ctx.arc(center,center, 0, angle + arc, angle, true);
+                            ctx.stroke();
+                            ctx.fill();
+                            ctx.save(); 
+                            if(i%2 == 0) {
+                                ctx.fillStyle = "#fff";
+                                if(turnplate.restaraunts.length == 6){
+                                    ctx.font=16*scale/1.5 + "px Calibri";
+                                }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
+                                    ctx.font=14*scale/1.5 + "px Calibri";
+                                }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
+                                    ctx.font=12*scale/1.5 + "px Calibri";
+                                }else {
+                                    ctx.font=12*scale/1.5 + "px Calibri";
+                                }
+                                ctx.shadowOffsetX = 0; 
+                                ctx.shadowOffsetY = 0; 
+                                ctx.shadowBlur = 0; 
+                                ctx.shadowColor = 'rgba(255, 255, 255, 0)'; 
+                                var text = that.big_circle_data[i];
+                                var line_height = 17;
+                                if(turnplate.restaraunts.length == 6){
+                                    ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
+                                    ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                                }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
+                                    ctx.translate(center + Math.cos(angle + arc / 1.7) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                    ctx.rotate(angle + arc/2);
+                                }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
+                                    ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                    ctx.rotate(angle + arc/2);
+                                }else {
+                                    ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
+                                    ctx.rotate(angle + arc/2);
+                                }
+                                // ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
+                                //ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                                ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                                ctx.restore();
+                            }
+                        }
+                    }
+                }
+            };
+
+            turntable.init();
+
+        });
+
+    </script>
+</body>
+</html> 
