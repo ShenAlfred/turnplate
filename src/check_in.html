@@ -11,24 +11,44 @@
 <body>
 
     <div class="turntable-pop">
+        <i class="close"></i>
+        <div class="golds">
+            <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+            <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+        </div>
         <div class="turntable-warp" id="turntable-warp">
             <canvas id="canvas" width="200" height="200"></canvas>
             <img class="turntable_bg" src="../image/turntable_bg.png" alt="">
             <div class="chou-btn" id="choujiang"></div>
             <div class="pointer"></div>
         </div>
+        <div class="yuwi">
+            <div class="pt_unenough">
+                您已累计签到3天，免费送您抽奖一次
+            </div>
+        </div>
     </div>
+
+    <div class="shadow"></div>
 
     <script src="./js/jquery.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/turntable.js"></script>
     <script src="./js/awardRotate.js"></script>
+    <script src="./js/turntable.js"></script>
     <script>
     
         $(function() {
         
             var _turntable = new turntable();
-            _turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费"];
+            _turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip"];
 
             _turntable.init();
 

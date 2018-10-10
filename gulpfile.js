@@ -44,7 +44,7 @@ gulp.task("less", function () {
 });
 
 gulp.task("image", function () {
-    return gulp.src(["src/**/*.png", "src/**/*.jpg"])
+    return gulp.src(["src/**/*.png", "src/**/*.jpg", "src/**/*.svg"])
         .pipe(changed("build"))
         .pipe(plumber())
         .pipe(imagemin())

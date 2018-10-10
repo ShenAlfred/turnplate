@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/commond.css">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/turnplate_a.css">
     <link rel="stylesheet" href="./styles/turn.css">
 </head>
 <body class="newyear">
-    <img src="../image/bg.jpg" class="bg1" alt="">
+    <img src="../image/turnplate_a/bg.jpg" class="bg1" alt="">
     <div class="warp">
 
         <!-- 下金币雨 -->
         <div class="golds">
-            <img src="../image/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
-            <img src="../image/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
-            <img src="../image/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
-            <img src="../image/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
-            <img src="../image/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
-            <img src="../image/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
-            <img src="../image/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
-            <img src="../image/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
-            <img src="../image/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
-            <img src="../image/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+            <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
         </div>
 
         <!-- 大标题 -->
-        <img class="title" src="../image/title.png" alt="" />
+        <img class="title" src="../image/turnplate_a/title.png" alt="" />
 
         <!-- 倒计时 -->
         <div class="count_down-warp">
@@ -66,8 +66,8 @@
         </div>
         <!-- 操作按钮组 -->
         <div class="btn_group">
-            <img src="../image/left_btn.png" class="left-btn fl"/>
-            <img src="../image/right_btn.png" class="right-btn fr"/>
+            <img src="../image/turnplate_a/left_btn.png" class="left-btn fl"/>
+            <img src="../image/turnplate_a/right_btn.png" class="right-btn fr"/>
         </div>
         <!-- 抽奖次数、积点显示 -->
         <div class="point-number">
@@ -78,10 +78,10 @@
         <!-- 大转盘 -->
         <div class="turntable-warp" id="turntable-warp">
             <canvas id="canvas" width="200" height="200"></canvas>
-            <img class="turntable_bg" src="../image/turntable_bg.png" alt="">
+            <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
             <div class="chou-btn" id="choujiang"></div>
             <div class="pointer"></div>
-            <img src="../image/money_god.png" class="another">
+            <img src="../image/turnplate_a/money_god.png" class="another">
         </div>
 
         <!-- 不能参与提示语 -->
@@ -219,6 +219,7 @@
     <script src="./js/common.js"></script>
     <script src="./js/leftTime.js"></script>
     <script src="./js/awardRotate.js"></script>
+    <script src="./js/turntable.js"></script>
     <script>
         $(function() {
 
@@ -421,221 +422,17 @@
             }
             
 
-            /******************************   抽奖大转盘     ************************************/
-            var turnplate = {
-                restaraunts: [],
-                big_textRadius: 300,    
-                small_textRadius: 300,
-                bRotate: false
-            };
-            
-            // 解决手机上显示出现的毛边
-            var scale = 6;
-            //16
-            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点',"$80", '100积点',"$80", '100积点'];
-            //14
-            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点',"$80", '100积点'];
-            //12
-            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝', "$80", '100积点'];
-            //10
-            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip", '红包', '元宝'];
-            //8
-            //turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip"];
-            //6
-            turnplate.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费"];
-            
-            var turntable = {
-                big_circle_data: [],
-                small_circle_data: [],
-                init: function() {
-                    var turntable_warp = $("#turntable-warp");
-                    var canvas = $("#canvas");
-                    var $canvas = document.getElementById("canvas");
-                    var ctx = canvas[0].getContext("2d");
-                    var that = this;
-                    $canvas.width = $canvas.width * scale;
-                    $canvas.height = $canvas.height * scale;
+            var _turntable = new turntable();
+            _turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费"];
 
-                    this.handleRestarauntsData();
-                    this.drawTurntableWheel(ctx);
+            _turntable.init();
 
-                    var custom_angle = 0;
-                    if(turnplate.restaraunts.length == 6) {
-                        custom_angle = 0;
-                    }else if(turnplate.restaraunts.length == 8) {
-                        custom_angle = 68;
-                    }else if(turnplate.restaraunts.length == 10) {
-                        custom_angle = 35;
-                    }else {
-                        custom_angle = 0;
-                    }
-                    canvas.rotate({
-                        angle: custom_angle
-                    });
-
-                    $("#choujiang").on('click',function() {
-                        if(turnplate.bRotate) return;
-                        turnplate.bRotate = !turnplate.bRotate;
-                        var item = rnd(1,turnplate.restaraunts.length);
-                        that.rotateFn(item, turnplate.restaraunts[item-1]);
-                    });
-                },
-                rotateFn: function (item, txt){
-                    var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length*2));
-                    if(angles<270){
-                        angles = 270 - angles; 
-                    }else{
-                        angles = 360 - angles + 270;
-                    }
-                    $("#canvas").stopRotate();
-                    $("#canvas").rotate({
-                        angle: 0,
-                        animateTo:angles+7200,
-                        duration: 5000,
-                        callback:function (){
-                            console.log(txt);
-                            turnplate.bRotate = !turnplate.bRotate;
-                            console.log(turnplate.bRotate)
-                        }
-                    });
-                },
-                //处理奖品数据(分割两个数组)
-                handleRestarauntsData: function() {
-                    for(var k=0; k<turnplate.restaraunts.length; k++) {
-                        if(k%2 == 0) {
-                            this.big_circle_data.push(turnplate.restaraunts[k]);
-                            this.small_circle_data.push("");
-                        }else {
-                            this.big_circle_data.push("");
-                            this.small_circle_data.push(turnplate.restaraunts[k]);
-                        }
-                    }
-                },
-                //画转盘
-                drawTurntableWheel: function(ctx) {
-                    var arc = Math.PI / (turnplate.restaraunts.length/2);
-                    ctx.clearRect(0,0,canvas.width,canvas.height);
-                    ctx.strokeStyle = "transparent";
-                    var center = canvas.width/2;
-                    var that = this;
-                    
-
-                    //圆的容器（包含小圆和大圆）
-                    ctx.fillStyle = "transparent";
-                    ctx.beginPath();
-                    ctx.arc(center,center,center-15*scale,0,2*Math.PI);
-                    ctx.stroke();
-                    ctx.fill();
-                    
-                    //小圆的渐变色
-                    var small_grd=ctx.createRadialGradient(center,center,0,center,center,center-25);
-                    small_grd.addColorStop(0,"#fff");
-                    small_grd.addColorStop(0.7,"#fff");
-                    small_grd.addColorStop(1,"#fff2bc");
-                    ctx.fillStyle = small_grd;
-                    //小圆
-                    for(var i=0;i<that.small_circle_data.length; i++) {
-                        if(that.small_circle_data[i]) {
-                            var angle = 0 + i * arc;
-                            ctx.beginPath();
-                            ctx.arc(center, center, center-15*scale, angle, angle + arc, false);
-                            ctx.arc(center, center, 0, angle + arc, angle, true);
-                            ctx.stroke();
-                            ctx.fill();
-                            ctx.save(); 
-                            ctx.fillStyle = "#ff5122";
-                            if(turnplate.restaraunts.length == 6){
-                                ctx.font=16*scale/1.5 + "px Calibri";
-                            }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
-                                ctx.font=14*scale/1.5 + "px Calibri";
-                            }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
-                                ctx.font=12*scale/1.5 + "px Calibri";
-                            }else {
-                                ctx.font=12*scale/1.5 + "px Calibri";
-                            }
-                            var text = that.small_circle_data[i];
-                            var line_height = 17;
-                            if(turnplate.restaraunts.length == 6){
-                                ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
-                                ctx.rotate(angle + arc / 2 + Math.PI / 2);
-                            }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
-                                ctx.translate(center + Math.cos(angle + arc / 1.7) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                ctx.rotate(angle + arc/2);
-                            }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
-                                ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                ctx.rotate(angle + arc/2);
-                            }else {
-                                ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                ctx.rotate(angle + arc/2);
-                            }
-                            ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
-                            ctx.restore();
-                        }
-                    }
-
-                    //大圆的渐变色
-                    var big_grd=ctx.createRadialGradient(center,center,0,center,center,center-18);
-                    big_grd.addColorStop(0,"#FF7A4B");
-                    big_grd.addColorStop(0.5,"#FFBA00");
-                    big_grd.addColorStop(1,"#FFD4B4");
-                    ctx.fillStyle = big_grd;
-
-                    //大圆阴影
-                    ctx.shadowOffsetX = 0; // 阴影Y轴偏移
-                    ctx.shadowOffsetY = 0; // 阴影X轴偏移
-                    ctx.shadowBlur = 30; // 模糊尺寸
-                    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // 颜色
-                    // //大圆
-                    for(var i=0;i<that.big_circle_data.length; i++) {
-                        if(that.big_circle_data[i]) {
-                            var angle = 0 + i * arc;
-                            ctx.beginPath();
-                            ctx.arc(center, center, center-12*scale, angle, angle + arc, false);
-                            ctx.arc(center,center, 0, angle + arc, angle, true);
-                            ctx.stroke();
-                            ctx.fill();
-                            ctx.save(); 
-                            if(i%2 == 0) {
-                                ctx.fillStyle = "#fff";
-                                if(turnplate.restaraunts.length == 6){
-                                    ctx.font=16*scale/1.5 + "px Calibri";
-                                }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
-                                    ctx.font=14*scale/1.5 + "px Calibri";
-                                }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
-                                    ctx.font=12*scale/1.5 + "px Calibri";
-                                }else {
-                                    ctx.font=12*scale/1.5 + "px Calibri";
-                                }
-                                ctx.shadowOffsetX = 0; 
-                                ctx.shadowOffsetY = 0; 
-                                ctx.shadowBlur = 0; 
-                                ctx.shadowColor = 'rgba(255, 255, 255, 0)'; 
-                                var text = that.big_circle_data[i];
-                                var line_height = 17;
-                                if(turnplate.restaraunts.length == 6){
-                                    ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
-                                    ctx.rotate(angle + arc / 2 + Math.PI / 2);
-                                }else if(turnplate.restaraunts.length >=6 && turnplate.restaraunts.length <=8) {
-                                    ctx.translate(center + Math.cos(angle + arc / 1.7) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                    ctx.rotate(angle + arc/2);
-                                }else if(turnplate.restaraunts.length >=8 && turnplate.restaraunts.length <=10) {
-                                    ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                    ctx.rotate(angle + arc/2);
-                                }else {
-                                    ctx.translate(center + Math.cos(angle + arc / 1.5) * turnplate.big_textRadius, center + Math.sin(angle + arc / 1.8) * turnplate.big_textRadius);
-                                    ctx.rotate(angle + arc/2);
-                                }
-                                // ctx.translate(center + Math.cos(angle + arc / 2) * turnplate.big_textRadius, center + Math.sin(angle + arc / 2) * turnplate.big_textRadius);
-                                //ctx.rotate(angle + arc / 2 + Math.PI / 2);
-                                ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
-                                ctx.restore();
-                            }
-                        }
-                    }
-                }
-            };
-
-            turntable.init();
+            $("#choujiang").on('click',function() {
+                if(_turntable.bRotate) return;
+                _turntable.bRotate = !_turntable.bRotate;
+                var item = rnd(1,_turntable.restaraunts.length);
+                _turntable.rotateFn(item, _turntable.restaraunts[item-1]);
+            });
 
         });
 
