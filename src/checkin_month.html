@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/commond.css">
+    <link rel="stylesheet" href="./styles/checkin_a.css">
+    <link rel="stylesheet" href="./styles/turn.css">
+</head>
+<body class="">
+    
+    <div class="head-bg">
+        <div class="ci-ti chei-mon">
+            签到有好礼
+        </div>
+        <div class="show-calendar">
+            <div class="left-icon"></div>
+            <div class="calendar-paper">
+                <div class="tb">
+                    <div class="tb-cell wdpt">
+                        <div>
+                            <span class="accumulate-num">3</span>
+                            天
+                        </div>
+                        <div class="accumulate-type">累积签到</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-icon"></div>
+        </div>
+        <a href="javascript:;" class="help"></a>
+        <a href="javascript:;" class="wdjp">我的奖品</a>
+    </div>
+    <div class="chkm-middle">
+        <div class="calendar-bg">
+            <div class="calendar-bg-shadow"></div>
+            <div class="calendar-bg-z"></div>
+        </div>
+    </div>
+    <div class="chi-m-tips">
+        还差3天就能领取奖品哦
+    </div>
+    <a href="javascript:;" class="shwn">点击签到</a>
+
+
+    <!-- 抽奖弹窗 -->
+    <div class="turntable-pop" style="display: none;">
+        <i class="close"></i>
+        <div class="golds pop-show">
+            <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+            <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+        </div>
+        <div class="turntable-warp" id="turntable-warp">
+            <canvas id="canvas" width="200" height="200"></canvas>
+            <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
+            <div class="chou-btn" id="choujiang"></div>
+            <div class="pointer"></div>
+        </div>
+        <div class="yuwi">
+            <div class="pt_unenough">
+                您已累计签到3天，免费送您抽奖一次
+            </div>
+        </div>
+    </div>
+
+    <!-- 签到成功 -->
+    <div class="checkin-pop-warp" style="display: none">
+        <div class="checkin-pop">
+            <i class="pop-close"></i>
+            <div class="cp-content">
+                <div class="cp-ine">
+                    <img src="./image/checkin_a/qd-success.png" class="qd-suucess" />
+                    <div class="cp-txt">签到成功</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 签到所得的奖品 -->
+    <div class="checkin-pop-warp lg" style="display: none;">
+        <div class="checkin-pop">
+            <i class="pop-close"></i>
+            <div class="cp-content">
+                <div class="cp-ine">
+                    <img src="./image/checkin_a/qd-success.png" class="qd-suucess" />
+                    <div class="cp-txt">恭喜您获得50元京东卡。</div>
+                </div>
+            </div>
+        </div>
+        <div class="ci-pop-msg">
+            奖品信息将通过短信发送至您手机，请留意查收哦！
+        </div>
+    </div>
+
+    <!-- 未中奖 -->
+    <div id="np_pop" class="no-prize" style="display: none;"><i id="np_close" class="np-close"></i></div>
+
+    <!-- 中奖了 -->
+    <div id="lottery_pop" class="lottery" style="display: none;">
+        <img id="lottery-icon" src="" />
+        <div>恭喜抽中50元京东卡</div>
+        <i id="lottery_close" class="lottery-close"></i>
+    </div>
+
+
+    <div class="shadow" style="display: none;"></div>
+
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/awardRotate.js"></script>
+    <script src="./js/turntable.js"></script>
+    <script>
+    
+        $(function() {
+
+
+
+        });
+
+    </script>
+
+</body>
+</html>
