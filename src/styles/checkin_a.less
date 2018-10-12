@@ -1,3 +1,7 @@
+body.xy {
+    background: #ff4d4d;
+}
+
 .turntable-pop {
     position: absolute;
     top: 50%;
@@ -20,52 +24,6 @@
     }
 }
 
-.golds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1000px;
-    overflow: hidden;
-
-    .gold {
-        position: absolute;
-        width: 44px;
-        height: 46px;
-
-        &.gold1 {
-            left: 28px;
-            
-        }
-        &.gold2 {
-            left: 102px;
-        }
-        &.gold3 {
-            left: 140px;
-        }
-        &.gold4 {
-            left: 208px;
-        }
-        &.gold5 {
-            left: 810px;
-        }
-        &.gold6 {
-            left: 955px;
-        }
-        &.gold7 {
-            left: 1055px;
-        }
-        &.gold8 {
-            left: 1130px;
-        }
-        &.gold9 {
-            left: 1032px;
-        }
-        &.gold10 {
-            left: 1165px;
-        }
-    }
-}
 
 .tip2 {
     width: 1120px;
@@ -90,4 +48,284 @@
 .yuwi {
     margin-top: 50px;
     text-align: center;
+}
+
+.ci-ti {
+    padding-top: 40px;
+    font-size: 60px;
+    color: #ff5555;
+    text-align: center;
+}
+
+.ci-accumulate {
+    margin: 65px auto 0;
+    color: #fff8d5;
+    width: 402px;
+    font-size: 28px;
+    height: 402px;
+    text-align: center;
+    background: url(../image/checkin_a/circle.png) center center no-repeat;
+    background-size: 100%;
+}
+
+.hdgz {
+    position: absolute;
+    right: 0;
+    top: 145px;
+    width: 255px;
+    height: 92px;
+    background: url(../image/checkin_a/hdgz.png) center center no-repeat;
+    background-size: 100%;
+}
+
+.accumulate-num {
+    font-size: 100px;
+}
+
+.tb {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.tb-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.checkin_wap {
+    position: relative;
+    width: 1100px;
+    height: 1200px;
+    margin: 100px auto 0;
+    background: #fff url(../image/checkin_a/person.png) center bottom no-repeat;
+    background-size: 75%;
+    border-radius: 50px;
+    box-shadow: 0 0 62px rgba(158,12,9,0.68);
+}
+
+.ca-head {
+    position: absolute;
+    left: 50%;
+    margin-left: -402px;
+    top: -49px;
+    width: 805px;
+    height: 125px;
+    background: url(../image/checkin_a/calendar-head.png) center center no-repeat;
+    background-size: 100%;
+}
+
+.in-b {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cr-day-s {
+    margin-top: 150px;
+    width: 100%;
+    height: 505px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.circle-day {
+    position: relative;
+    float: left;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 1px solid #666;
+    margin-left: 88px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .gift-icon {
+        position: absolute;
+        bottom: 0;
+        right: -35px;
+        width: 60px;
+        height: 50px;
+        display: block;
+        background: url(../image/checkin_a/gift-bling.png) center center no-repeat;
+        background-size: 100%;
+    }
+
+    &.active {
+        border-color: #ff5555;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 88px;
+            height: 1px;
+            background: #ff5555;
+            left: -88px;
+            top: 50%;
+        }
+
+        .cd-inner {
+            background: #ff5555;
+            color: #fff;
+        }
+    }
+
+    .cd-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -84px;
+        margin-left: -84px;
+        background: #fff;
+        width: 169px;
+        height: 169px;
+        border-radius: 100%;
+        color: #666;
+        font-size: 36px;
+        text-align: center;
+
+        .cd-tn {
+            display: table;
+            width: 100%;
+            height: 100%;
+
+            div {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 88px;
+        height: 1px;
+        background: #666;
+        left: -88px;
+        top: 50%;
+    }
+
+    &:nth-child(4n+1) {
+        margin-left: 20px;
+    }
+}
+
+.checkin-area {
+    margin-top: 90px;
+    text-align: center;
+
+    &.checkin-success {
+        margin-top: 145px;
+
+        .checkin-success-tip {
+            display: block;
+        }
+
+        .checkin-btn {
+            display: none;
+        }
+    }
+
+
+    .checkin-success-tip {
+        display: none;
+        .success-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 52px;
+            height: 52px;
+            background: url(../image/checkin_a/qd-icon.png) center center no-repeat;
+            background-size: 100%;
+        }
+        span {
+            vertical-align: middle;
+            font-size: 64px;
+            color: #fff;
+            padding-left: 20px;
+        }
+    }
+    
+    .checkin-btn {
+        display: block;
+        width: 812px;
+        height: 190px;
+        margin: 0 auto;
+        background: url(../image/checkin_a/checkin-btn.png) center center no-repeat;
+        background-size: 100%;
+    }
+}
+
+.checkin-pop-warp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 825px;
+    height: 560px;
+    margin-left: -414px;
+    margin-top: -280px;
+    z-index: 14;
+
+    &.lg {
+        width: 925px;
+        height: 760px;
+        margin-left: -462px;
+    }
+
+    .checkin-pop {
+        position: relative;
+        width: 825px;
+        height: 560px;
+        margin: 0 auto;
+        background: url(../image/checkin_a/pop-bg.png) center center no-repeat;
+        background-size: 100%;
+    
+        i.pop-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 100px;
+            height: 118px;
+            background: url(../image/checkin_a/pop-close.png) 40px 20px no-repeat;
+            background-size: 30%;
+        }
+    
+        .cp-content {
+            display: table;
+            width: 100%;
+            height: 100%;
+    
+            .cp-ine {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+        }
+    }
+
+    .ci-pop-msg {
+        width: 100%;
+        margin-top: 70px;
+        color: #FFC99C;
+        border: 1px solid #FFC99C;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+}
+
+.offset-warp {
+    position: relative;
+    overflow: hidden;
+}
+
+.qd-suucess {
+    width: 248px;
+    height: 208px;
+}
+.cp-txt {
+    padding-top: 10px;
+    color: #fff;
 }
