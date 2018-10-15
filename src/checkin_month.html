@@ -33,9 +33,35 @@
         <a href="javascript:;" class="wdjp">我的奖品</a>
     </div>
     <div class="chkm-middle">
-        <div class="calendar-bg">
-            <div class="calendar-bg-shadow"></div>
-            <div class="calendar-bg-z"></div>
+        <div class="calendar-bg-shadow"></div>
+        <div class="calendar-bg-z">
+            <div class="calendar">
+                <div class="calendar-head">
+                    <i id="prevArrow" class="arrow left"></i>
+                    <span id="year-show" class="year-show">2018年9月</span>
+                    <i id="nextArrow" class="arrow right"></i>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-weeks">
+                        <div class="week">日</div>
+                        <div class="week">一</div>
+                        <div class="week">二</div>
+                        <div class="week">三</div>
+                        <div class="week">四</div>
+                        <div class="week">五</div>
+                        <div class="week">六</div>
+                    </div>
+                    <div id="calendar-days" class="calendar-days">
+                        <!-- <div class="day active">
+                            <span>30</span>
+                        </div>
+                        <div class="day gray">1</div>
+                        <div class="day">
+                            <div class="d-gift"></div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="chi-m-tips">
@@ -124,11 +150,33 @@
     <script src="./js/common.js"></script>
     <script src="./js/awardRotate.js"></script>
     <script src="./js/turntable.js"></script>
+    <script src="./js/calendar.js"></script>
     <script>
     
         $(function() {
 
+            var current_data = new Date();
+            var _year = current_data.getFullYear();
+            var _month = current_data.getMonth();
+            var _date = current_data.getDate();
+            var month = _month;
+            var prev = $("#prevArrow");
+            var next = $("#nextArrow");
 
+            var calendar = new Calendar({
+                callback: function() {
+                    console.log("rendered....")    
+                },
+                prev: function() {
+                    month -= 1;
+                    calendar.drawCalendar(_year ,month, _date);
+                },
+                next: function() {
+                    month += 1;
+                    calendar.drawCalendar(_year ,month, _date);
+                }
+            });
+            calendar.init();
 
         });
 

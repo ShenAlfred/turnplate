@@ -415,36 +415,27 @@ body.xy {
     background: #fff;
     padding-top: 1000px;
     margin-top: -280px;
+}
 
-    .calendar-bg {
-        position: relative;
-        width: 1080px;
-        height: 1108px;
-        margin: 0 auto;
+.calendar {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+}
+.calendar-bg-shadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    height: 1000px;
+    margin-left: -500px;
+    background: rgba(0,0,0,.03);
+    box-shadow: 0 0 1000px #ffe5e5;   
+}
 
-        .calendar-bg-z {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url(../image/checkin_a/calendar-bg.png) center center no-repeat;
-            background-size: 100%;
-            z-index: 3;
-        }
-        .calendar-bg-shadow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 1000px;
-            height: 1000px;
-            margin-top: -500px;
-            margin-left: -500px;
-            background: rgba(0,0,0,.03);
-            box-shadow: 0 0 1000px #ffe5e5;   
-            z-index: 1;
-        }
-    }
+.calendar-bg-z {
+    width: 100%;
+    height: 100%;
 }
 .chi-m-tips {
     padding-top: 50px;
@@ -479,4 +470,125 @@ body.xy {
     margin-right: 10px;
     width: 53px;
     height: 53px;
+}
+
+.calendar {
+    .calendar-head {
+        position: relative;
+        height: 140px;
+        padding: 0 70px;
+        text-align: center;
+        background: url("../image/checkin_a/calendar-header.png") center 10px no-repeat;
+        background-size: 100%;
+
+        i.arrow {
+            position: absolute;
+            top: 74px;
+            display: block;
+            width: 0;
+            height: 0;
+
+            &.left {
+                left: 80px;
+                border-top: 22px solid transparent;
+                border-left: 40px solid transparent;
+                border-bottom: 22px solid transparent;
+                border-right: 40px solid #cfcfcf;
+
+                &.able {
+
+                    border-top: 22px solid transparent;
+                    border-left: 40px solid transparent;
+                    border-bottom: 22px solid transparent;
+                    border-right: 40px solid #ff6339;
+    
+                }
+            }
+
+            &.right {
+                right: 80px;
+                border-top: 22px solid transparent;
+                border-left: 40px solid #cfcfcf;
+                border-bottom: 22px solid transparent;
+                border-right: 40px solid transparent;
+
+
+                &.able {
+
+                    border-top: 22px solid transparent;
+                    border-left: 40px solid #ff6339;
+                    border-bottom: 22px solid transparent;
+                    border-right: 40px solid transparent
+    
+                }
+            }
+        }
+
+        .year-show {
+            padding-top: 60px;
+            color: #4c4c4c;
+            font-size: 54px;
+            display: inline-block;
+        }
+    }
+
+    .calendar-body {
+        background: #fff;
+        padding: 0 70px 30px;
+        border-radius: 0 0 50px 50px;
+        
+        .calendar-weeks {
+            overflow: hidden;
+            .week {
+                width: 134px;
+                height: 120px;
+                line-height: 134px;
+                float: left;
+                color: #4b4b4b;
+                text-align: center;
+                
+                &.td-week {
+                    color: #ff5555;
+                }
+            }
+            
+        }
+    
+        .calendar-days {
+            overflow: hidden;
+            font-size: 44px;
+            .day {
+                margin-top: 40px;
+                width: 134px;
+                height: 120px;
+                line-height: 134px;
+                float: left;
+                color: #4b4b4b;
+                text-align: center;
+
+                &.gray {
+                    color: #d0d0d0;
+                }
+
+                &.active span{
+                    display: block;
+                    width: 70px;
+                    height: 70px;
+                    line-height: 70px;
+                    margin: 25% auto;
+                    color: #fff;
+                    background: #ff6339;
+                    border-radius: 100%;
+                }
+
+                .d-gift {
+                    width: 134px;
+                    height: 120px;
+                    background: url(../image/checkin_a/gift-bling.png) center center no-repeat;
+                    background-size: 100%;
+                }
+            }
+        }
+
+    }
 }
