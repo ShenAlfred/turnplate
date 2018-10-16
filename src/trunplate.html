@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/commond.css">
+    <link rel="stylesheet" href="./styles/turnplate_a.css">
+    <link rel="stylesheet" href="./styles/turn.css">
+</head>
+<body class="">
+    <img src="../image/turnplate_a/bg.png" class="bg1" alt="">
+    <div class="warp">
+
+        <!-- 下金币雨 -->
+        <div class="golds">
+            <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+            <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+            <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+            <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+            <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+        </div>
+
+        <!-- 大标题 -->
+        <img class="title" src="../image/turnplate_a/title.png" alt="" />
+
+        <!-- 倒计时 -->
+        <div class="count_down-warp">
+            还有
+            <div class="cd-item day">
+                5
+            </div>
+            天
+            <div class="cd-item hours">
+                22
+            </div>
+            时
+            <div class="cd-item minutes">
+                18
+            </div>
+            分
+            <div class="cd-item second">
+                30
+            </div>
+            秒结束
+        </div>
+        <!-- 提示语 -->
+        <div class="tips" style="display: none;">
+            tip:活动将于****年/**月/**日**：**开始，敬请期待
+        </div>
+        <div class="tips over_tips">
+            <div>
+                <img src="./image/turnplate_a/msg.png" class="broadcast-img"> 
+                活动已结束，感谢关注!
+            </div>
+        </div>
+        <div class="tips">
+            <div class="zj-list">
+                <ul>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                    <li>135****7890 抽中***奖品</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 操作按钮组 -->
+        <div class="btn_group">
+            <img src="../image/turnplate_a/left_btn.png" class="left-btn fl"/>
+            <img src="../image/turnplate_a/right_btn.png" class="right-btn fr"/>
+        </div>
+        <!-- 抽奖次数、积点显示 -->
+        <div class="point-number">
+            <span>可用积点</span><span class="pt">3000000</span>
+            <span>剩余机会:</span><span class="nu">8</span>
+            <span>次</span>
+        </div>
+        <!-- 大转盘 -->
+        <div style="position: relative;">
+            <div class="turntable-warp" id="turntable-warp">
+                <canvas id="canvas" width="200" height="200"></canvas>
+                <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
+                <div class="chou-btn" id="choujiang"></div>
+            </div>
+            <img src="../image/turnplate_a/ybd.png" class="ybd" />
+        </div>
+
+        <!-- 不能参与提示语 -->
+        <div class="tip2">
+            <div class="unjoin_tips">
+                您不在本次活动对象内，不能参加活动哦，谢谢关注！
+            </div>
+            <div class="pt_unenough">
+                您的积点不足
+            </div>
+        </div>
+
+        <!-- 历史记录 -->
+        <div class="history-list">
+            <div class="click-area click-able">
+                <span style="vertical-align: middle;">历史参与记录</span>
+                <i class="arrow"></i>
+            </div>
+            <div class="history-list-warp">
+                <div class="hl-th">
+                    <div class="prize-order">序号</div>
+                    <div class="prize-name">获得奖品</div>
+                    <div class="prize-time">抽奖时间</div>
+                    <div class="prize-pt">消耗积点</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+                <div class="hl-td">
+                    <div class="prize-order">1</div>
+                    <div class="prize-name">红包20元</div>
+                    <div class="prize-time">9.20/13:50</div>
+                    <div class="prize-pt">15</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="shadow" style="display: none;"></div>
+    <!-- 活动规则 -->
+    <div id="active_pop" class="pop" style="display: none;">
+        <div class="p-header">
+            活动规则
+            <i id="active_close" class="close"></i>
+        </div>
+        <div class="p-content">
+            <article class="content">
+                活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则
+            </article>
+        </div>
+    </div>
+    <!-- 我的奖品 -->
+    <div id="prize_pop" class="pop" style="display: none;">
+        <div class="p-header">
+            我的奖品
+            <i id="prize_close" class="close"></i>
+        </div>
+        <div class="p-content">
+            <article class="content-list">
+                <div class="cl-item">
+                    <img src="" class="fl">
+                    <div class="cl-i-n fr">50积点</div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <!-- 未中奖 -->
+    <div id="np_pop" class="no-prize" style="display: none;"><i id="np_close" class="np-close"></i></div>
+
+    <!-- 中奖了 -->
+    <div id="lottery_pop" class="lottery" style="display: none;">
+        <img id="lottery-icon" src="" />
+        <div>恭喜抽中50元京东卡</div>
+        <i id="lottery_close" class="lottery-close"></i>
+    </div>
+
+
+    <!-- 验证输入 -->
+    <div id="validate_pop" class="pop lg validate_pop" style="display: none;">
+        <i id="validate_close" class="close_1 validate_close"></i>
+        <form class="form-content">
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="phoneNumber">请输入手机号</label>
+                    <div id="phoneNumber_error" class="error_tips">请输入<span>正确的</span>手机号</div>
+                </div>
+                <input type="number" class="opcity-input" id="phoneNumber" placeholder="请输入手机号"/>
+            </div>  
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="msgCode">请输入短信验证码</label>
+                    <div id="msgCode_error" class="error_tips">请输入<span>正确的</span>短信验证码</div>
+                </div>
+                <input type="number" class="opcity-input" id="msgCode" placeholder="请输入短信验证码"/>
+                <a href="javascript:;" id="sendMsgCode" class="msgCode_btn">点击发送</a>
+            </div> 
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="imgCode">请输入图形验证码</label>
+                    <div id="imgCode_error" class="error_tips">请输入<span>正确的</span>图形验证码</div>
+                </div>
+                <input type="text" class="opcity-input" id="imgCode" placeholder="请输入图形验证码"/>
+                <img src="" class="imgCode_img" />
+            </div>  
+        </form>
+        <a href="javascript:;" class="validate_btn" id="validate_btn">提交</a>
+    </div>
+
+    <!-- 当手机号对应多个客户信息时，再提示客户证件号验证 -->
+    <div id="validate_pop1" class="pop sm validate_pop" style="display: none;">
+        <i id="validate_close" class="close_1 validate_close"></i>
+        <form class="form-content">
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="idNumber">请输入证件号</label>
+                    <div id="idNumber_error" class="error_tips">请输入<span>正确的</span>证件号</div>
+                </div>
+                <input type="number" class="opcity-input" id="idNumber" placeholder="请输入证件号"/>
+            </div>
+        </form>  
+        <a href="javascript:;" class="validate_btn" id="validate_btn1">提交</a>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/leftTime.js"></script>
+    <script src="./js/awardRotate.js"></script>
+    <script src="./js/turntable.js"></script>
+    <script>
+        $(function() {
+
+            /************************  验证   ****************************/
+
+            var phonereg = /^[1][3,4,5,7,8][0-9]{9}$/;
+            var isSendMsgCode = false;                      //是否发送过短信验证码
+            var Validate = new Array(3);
+            var isValidate = false;
+            
+
+            //验证手机号码
+            $("#phoneNumber").on('blur', function() {
+                var val = $(this).val(),
+                    id = $(this).attr('id');
+                if(!phonereg.test(val)) {
+                    $(this).parent().addClass('error');
+                    Validate[0] = 0;
+                }else {
+                    $(this).parent().removeClass('error');
+                    Validate[0] = 1;
+                }
+
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+            
+            //发送短信验证码
+            $("#sendMsgCode").on('click', function() {
+                var msgCode = this;
+                isSendMsgCode = true;
+                $.leftTime(20,function(d){
+                    if(d.status) {
+                        $(msgCode).text(parseInt(d.m)*60+parseInt(d.s)+"s");
+                    }else {
+                        $(msgCode).text('重新发送');
+                    }
+                });
+            });
+
+            //验证短信验证码
+            $("#msgCode").on('blur', function(){
+                Validate[1] = 1;
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+
+            //验证图形验证码
+            $("#imgCode").on('blur', function() {
+                Validate[2] = 1;
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+
+            
+            var idIsValidate = false; 
+            $("#idNumber").on('blur', function() {
+                idIsValidate = true;
+                if(idIsValidate) {
+                    $(this).parent().removeClass('error');
+                    $("#validate_btn1").addClass('enable');
+                }else {
+                    $(this).parent().addClass('error');
+                    $("#validate_btn1").removeClass('enable');
+                }
+            });
+
+
+            $("#validate_btn").on('click', function() {
+                console.log('提交数据! 11111');
+            });
+
+            $("#validate_btn1").on('click', function() {
+                console.log('提交数据! 22222');
+            });
+
+            $(".validate_close").on('click', function() {
+                $(".validate_pop").hide();
+                $(".shadow").hide();
+            });
+
+            /************************  验证   ****************************/
+
+            /************************   中奖名单无缝滚动   **********************/
+
+            var $zj_list_container = $(".zj-list"),
+                $zj_ul = $zj_list_container.find('ul'),
+                $li_height = $zj_ul.find('li').eq(0).height(),
+                total_height = $li_height * 5,
+                zj_index = 0;
+
+                $zj_ul.css({
+                    height: total_height
+                });
+
+                function zjscroll() {
+                    $zj_ul.stop().animate({
+                        top: -zj_index * $li_height
+                    }, 400, function() {
+                        if(zj_index == $zj_ul.children().length -1) {
+                            $zj_ul.css({top:0});
+                            zj_index = 0;
+                        }
+                    });
+                }
+                
+                function next() {
+                    zj_index++;
+                    if(zj_index > $zj_ul.children().length - 1) {
+                        zj_index = 0;
+                    }
+                    zjscroll();
+                }
+                
+                setInterval(next,3000);
+              
+            /************************   中奖名单无缝滚动   **********************/
+
+
+            /*********************   倒计时     **************************/
+            var endTime = new Date('2018/10/29 22:20:00');
+
+            $.leftTime(endTime.getTime(),function(d){
+                if(d.status){
+                    $(".day").html(d.d);
+                    $(".hours").html(d.h);
+                    $(".minutes").html(d.m);
+                    $(".second").html(d.s);
+                }else {
+                    console.log("活动开始")
+                }
+            });
+            /*********************   倒计时     **************************/
+            
+
+            /*****************************    弹框事件    ************************/
+            //活动规则
+            $(".left-btn").on('click', function() {
+                $("#active_pop").show();
+                $(".shadow").show();
+            });
+            //我的奖品
+            $(".right-btn").on('click', function() {
+                $("#prize_pop").show();
+                $(".shadow").show();
+            });
+            //活动规则关闭
+            $("#active_close").on('click', function() {
+                $("#active_pop").hide();
+                $(".shadow").hide();
+            });
+            //我的奖品关闭
+            $("#prize_close").on('click', function() {
+                $("#prize_pop").hide();
+                $(".shadow").hide();
+            });
+            //未中奖关闭
+            $("#np_close").on('click', function() {
+                $("#np_pop").hide();
+                $(".shadow").hide();
+            });
+            //中奖关闭
+            $("#lottery_close").on('click', function() {
+                $("#lottery_pop").hide();
+                $(".shadow").hide();
+            });
+            /*****************************    弹框事件    ************************/
+
+
+            //中奖后加载对应中奖图片
+            var img = new Image();
+            //img.src = './image/package.png';
+            img.src = './image/yb.png';
+            //img.src = './image/card.png';
+            img.onload = function() {
+                $("#lottery-icon").attr('src', this.src);
+            }
+            
+
+            var _turntable = new turntable();
+            //_turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝'];
+            _turntable.restaraunts = [{
+                activeNo: 's09827',
+                activeName: '20积点'
+            },{
+                activeNo: 's09527',
+                activeName: '$600'
+            },{
+                activeNo: 's029027',
+                activeName: '50积点'
+            },{
+                activeNo: 's096727',
+                activeName: '$20'
+            },{
+                activeNo: 's09927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's099927',
+                activeName: '¥50话费'
+            },{
+                activeNo: 's78227',
+                activeName: '京东卡'
+            },{
+                activeNo: 's0198227',
+                activeName: '爱奇艺vip'
+            },{
+                activeNo: 's0998927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's0992527',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's099890927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            }];
+
+            var randomNo = "s099927";
+                index = 0;
+
+            _turntable.init();
+
+            $("#choujiang").on('click',function() {
+                if(_turntable.bRotate) return;
+                _turntable.bRotate = !_turntable.bRotate;
+                for(var i=0; i<_turntable.restaraunts.length; i++) {
+                    if(randomNo == _turntable.restaraunts[i]['activeNo']) {
+                        index = i+1;
+                    }
+                }
+                //var item = rnd(1,_turntable.restaraunts.length);
+                console.log(index)
+                _turntable.rotateFn(index, _turntable.restaraunts[index-1]);
+            });
+
+        });
+
+    </script>
+</body>
+</html> 
