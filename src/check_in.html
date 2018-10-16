@@ -229,7 +229,7 @@
     </div>
 
     <!-- 抽奖弹窗 -->
-    <div class="turntable-pop" style="display: block;">
+    <div class="turntable-pop" style="display: none;">
         <i class="close"></i>
         <div class="golds pop-show">
             <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
@@ -295,7 +295,7 @@
     </div>
 
 
-    <div class="shadow" style="display: block;"></div>
+    <div class="shadow" style="display: none;"></div>
 
     <script src="./js/jquery.js"></script>
     <script src="./js/common.js"></script>
@@ -375,10 +375,13 @@
 
             var max = 14;
             var col = 4;
-            var index = Math.ceil(8/col)-1;
+            var index = Math.ceil(22/col)-1;
             
-            $(".offset-warp").css({
-                top: -(index *  20.648) + "vw"
+            
+            setTimeout(function() {
+                $(".offset-warp").css({
+                    top: -(index *  20.648) + "vw"
+                });
             });
         
             $("#cr-day-s").scrollTop(Math.abs(parseInt($(".offset-warp").css('top'))));
