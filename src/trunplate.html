@@ -47,7 +47,7 @@
             <div class="cd-item second">
                 30
             </div>
-            秒结束
+            秒<span id="active_state">开始</span>
         </div>
         <!-- 提示语 -->
         <div class="tips" style="display: none;">
@@ -227,6 +227,7 @@
     <script src="./js/leftTime.js"></script>
     <script src="./js/awardRotate.js"></script>
     <script src="./js/turntable.js"></script>
+    <script src="./js/trunplateReq.js"></script>
     <script>
         $(function() {
 
@@ -504,8 +505,6 @@
                         index = i+1;
                     }
                 }
-                //var item = rnd(1,_turntable.restaraunts.length);
-                console.log(index)
                 _turntable.rotateFn(index, _turntable.restaraunts[index-1]);
             });
 

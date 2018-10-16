@@ -306,15 +306,70 @@
         $(function() {
         
             var _turntable = new turntable();
-            _turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip"];
+            _turntable.restaraunts = [{
+                activeNo: 's09827',
+                activeName: '20积点'
+            },{
+                activeNo: 's09527',
+                activeName: '$600'
+            },{
+                activeNo: 's029027',
+                activeName: '50积点'
+            },{
+                activeNo: 's096727',
+                activeName: '$20'
+            },{
+                activeNo: 's09927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's099927',
+                activeName: '¥50话费'
+            },{
+                activeNo: 's78227',
+                activeName: '京东卡'
+            },{
+                activeNo: 's0198227',
+                activeName: '爱奇艺vip'
+            },{
+                activeNo: 's0998927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's0992527',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's099890927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            },{
+                activeNo: 's08927',
+                activeName: '谢谢参与'
+            }];
+
+            var randomNo = "s099927";
+                index = 0;
 
             _turntable.init();
 
             $("#choujiang").on('click',function() {
                 if(_turntable.bRotate) return;
                 _turntable.bRotate = !_turntable.bRotate;
-                var item = rnd(1,_turntable.restaraunts.length);
-                _turntable.rotateFn(item, _turntable.restaraunts[item-1]);
+                for(var i=0; i<_turntable.restaraunts.length; i++) {
+                    if(randomNo == _turntable.restaraunts[i]['activeNo']) {
+                        index = i+1;
+                    }
+                }
+                _turntable.rotateFn(index, _turntable.restaraunts[index-1]);
             });
             
 

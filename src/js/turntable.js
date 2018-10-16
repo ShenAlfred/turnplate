@@ -8,7 +8,6 @@ function turntable() {
     this.bRotate = false;
     this.scale = 6;
     this.colorsGroup = ['#ff6026', '#ffffff'];
-    this.mainColor = '#ff6026';
 }
 
 //16
@@ -56,7 +55,6 @@ turntable.prototype = {
     rotateFn: function (item, txt){
         var that = this;
         var angles = item * (360 / that.restaraunts.length) - (360 / (that.restaraunts.length*2));
-        console.log(angles)
         if(angles<270){
             angles = 270 - angles; 
         }else{
