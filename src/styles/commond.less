@@ -156,6 +156,9 @@ animation-duration: 3s;
     z-index: 11;
 }
 
+.cdw {
+    height: 100px;
+}
 
 .count_down-warp {
     width: 890px;
@@ -205,7 +208,7 @@ animation-duration: 3s;
 
 .zj-list {
     width: 800px;
-    height: 50px;
+    height: 60px;
     margin: 0 auto;
     overflow: hidden;
 
@@ -214,6 +217,7 @@ animation-duration: 3s;
         left: 0;
         
         li {
+            height: 60px;
             color: #fff6c2;
         }
     }
@@ -341,7 +345,7 @@ animation-duration: 3s;
 }
 .golds {
     position: absolute;
-    top: 1000px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 1000px;
@@ -412,6 +416,71 @@ animation-duration: 3s;
     }
 }
 
+.entity {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 960px;
+    height: 1700px;
+    margin-left: -480px;
+    margin-top: -850px;
+    z-index: 14;
+
+    .entity-bg {
+        position: relative;
+        width: 960px;
+        height: 1430px;
+        background: url(../image/pop/entitybg.png) center center no-repeat;
+        background-size: 100%;
+
+        .entity-lottery-area {
+            position: absolute;
+            width: 270px;
+            height: 180px;
+            top: 110px;
+            left: 50%;
+            margin-left: -135px;
+        }
+        .div-lottery-text {
+            padding-top: 570px;
+            padding-bottom: 10px;
+            color: #ff562a;
+            font-size: 48px;
+            text-align: center;
+        }
+        .uw {
+            color: #686868;
+            font-size: 36px;
+            text-align: center;
+        }
+        .el-input-item {
+            position: relative;
+            width: 810px;
+            height: 165px;
+            margin: 35px auto 10px;
+
+            .placeholder-name {
+                color: #d0d0d0;
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            .el-input {
+                width: 100%;
+                height: 95px;
+                font-size: 50px;
+                outline: none;
+                border: none;
+                
+                &::placeholder {
+                    color: #686868;
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+}
+
 .lottery{
     position: absolute;
     top: 50%;
@@ -453,4 +522,9 @@ animation-duration: 3s;
         margin-left: -50px;
         margin-top: -50px;
     }
+}
+
+#joiner-td-warp {
+    height: 500px;
+    overflow: auto;
 }

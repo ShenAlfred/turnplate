@@ -12,61 +12,47 @@
     <img src="../image/turnplate_a/bg.png" class="bg1" alt="">
     <div class="warp">
 
-        <!-- 下金币雨 -->
-        <div class="golds">
-            <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
-            <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
-            <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
-            <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
-            <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
-            <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
-            <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
-            <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
-            <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
-            <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
-        </div>
-
         <!-- 大标题 -->
         <img class="title" src="../image/turnplate_a/title.png" alt="" />
 
         <!-- 倒计时 -->
-        <div class="count_down-warp">
-            还有
-            <div class="cd-item day">
-                5
+        <div class="cdw">
+            <div class="count_down-warp" style="display: none;">
+                还有
+                <div class="cd-item day">
+                    00
+                </div>
+                天
+                <div class="cd-item hours">
+                    00
+                </div>
+                时
+                <div class="cd-item minutes">
+                    00
+                </div>
+                分
+                <div class="cd-item second">
+                    00
+                </div>
+                秒<span id="active_state">开始</span>
             </div>
-            天
-            <div class="cd-item hours">
-                22
-            </div>
-            时
-            <div class="cd-item minutes">
-                18
-            </div>
-            分
-            <div class="cd-item second">
-                30
-            </div>
-            秒<span id="active_state">开始</span>
         </div>
         <!-- 提示语 -->
-        <div class="tips" style="display: none;">
+        <div class="tips unstart_tips" style="display: none;">
             tip:活动将于****年/**月/**日**：**开始，敬请期待
         </div>
-        <div class="tips over_tips">
-            <div>
-                <img src="./image/turnplate_a/msg.png" class="broadcast-img"> 
-                活动已结束，感谢关注!
-            </div>
+        <div class="tips no-prize_tips" style="display: none;">
+            <img src="./image/turnplate_a/msg.png" class="broadcast-img"> 
+            奖品已发放完毕，感谢关注！
         </div>
-        <div class="tips">
+        <div class="tips over_tips" style="display: none;">
+            <img src="./image/turnplate_a/msg.png" class="broadcast-img"> 
+            <span>活动已结束，感谢关注!</span>
+        </div>
+        <div class="tips" id="joiner-list" style="display:none">
             <div class="zj-list">
                 <ul>
-                    <li>135****7890 抽中***奖品</li>
-                    <li>135****7890 抽中***奖品</li>
-                    <li>135****7890 抽中***奖品</li>
-                    <li>135****7890 抽中***奖品</li>
-                    <li>135****7890 抽中***奖品</li>
+                    <!-- <li>135****7890 抽中***奖品</li> -->
                 </ul>
             </div>
         </div>
@@ -76,14 +62,34 @@
             <img src="../image/turnplate_a/right_btn.png" class="right-btn fr"/>
         </div>
         <!-- 抽奖次数、积点显示 -->
-        <div class="point-number">
-            <span>可用积点</span><span class="pt">3000000</span>
-            <span>剩余机会:</span><span class="nu">8</span>
-            <span>次</span>
+        <div class="placeholder_place">
+            <div id="point-number" class="point-number" style="display: none;">
+                <span>可用积点</span><span class="pt">3000000</span>
+                <span>剩余机会:</span><span class="nu">8</span>
+                <span>次</span>
+            </div>
+            <div id="choujiang-number" class="point-number" style="display: none;">
+                <span>剩余机会:</span><span class="nu">8</span>
+                <span>次</span>
+            </div>
         </div>
         <!-- 大转盘 -->
         <div style="position: relative;">
+            <!-- 下金币雨 -->
+            <div class="golds">
+                <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
+                <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
+                <img src="../image/turnplate/gold3.png" class="gold gold3 animated infinite slower downGoldRain delay-5s" alt="">
+                <img src="../image/turnplate/gold4.png" class="gold gold4 animated infinite slow downGoldRain delay-4s" alt="">
+                <img src="../image/turnplate/gold3.png" class="gold gold5 animated infinite slower downGoldRain delay-6s" alt="">
+                <img src="../image/turnplate/gold2.png" class="gold gold6 animated infinite slow downGoldRain delay-8s" alt="">
+                <img src="../image/turnplate/gold1.png" class="gold gold7 animated infinite slower downGoldRain delay-7s" alt="">
+                <img src="../image/turnplate/gold2.png" class="gold gold8 animated infinite slower downGoldRain delay-9s" alt="">
+                <img src="../image/turnplate/gold1.png" class="gold gold9 animated infinite slow downGoldRain delay-1s" alt="">
+                <img src="../image/turnplate/gold2.png" class="gold gold10 animated infinite slower downGoldRain delay-2s" alt="">
+            </div>
             <div class="turntable-warp" id="turntable-warp">
+                <div class="un-click-area"></div>
                 <canvas id="canvas" width="200" height="200"></canvas>
                 <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
                 <div class="chou-btn" id="choujiang"></div>
@@ -93,44 +99,36 @@
 
         <!-- 不能参与提示语 -->
         <div class="tip2">
-            <div class="unjoin_tips">
+            <div class="unjoin_tips" style="display: none;">
                 您不在本次活动对象内，不能参加活动哦，谢谢关注！
             </div>
-            <div class="pt_unenough">
+            <div class="pt_unenough" style="display: none;">
                 您的积点不足
             </div>
         </div>
 
         <!-- 历史记录 -->
         <div class="history-list">
-            <div class="click-area click-able">
+            <div class="click-area" id="history-record">
                 <span style="vertical-align: middle;">历史参与记录</span>
                 <i class="arrow"></i>
             </div>
-            <div class="history-list-warp">
-                <div class="hl-th">
-                    <div class="prize-order">序号</div>
-                    <div class="prize-name">获得奖品</div>
-                    <div class="prize-time">抽奖时间</div>
-                    <div class="prize-pt">消耗积点</div>
+            <div class="history-list-warp" style="display: none;">
+                <div id="joiner-th-warp">
+                    <!-- <div class="hl-th">
+                        <div class="prize-order">序号</div>
+                        <div class="prize-name">获得奖品</div>
+                        <div class="prize-time">抽奖时间</div>
+                        <div class="prize-pt">消耗积点</div>
+                    </div> -->
                 </div>
-                <div class="hl-td">
-                    <div class="prize-order">1</div>
-                    <div class="prize-name">红包20元</div>
-                    <div class="prize-time">9.20/13:50</div>
-                    <div class="prize-pt">15</div>
-                </div>
-                <div class="hl-td">
-                    <div class="prize-order">1</div>
-                    <div class="prize-name">红包20元</div>
-                    <div class="prize-time">9.20/13:50</div>
-                    <div class="prize-pt">15</div>
-                </div>
-                <div class="hl-td">
-                    <div class="prize-order">1</div>
-                    <div class="prize-name">红包20元</div>
-                    <div class="prize-time">9.20/13:50</div>
-                    <div class="prize-pt">15</div>
+                <div id="joiner-td-warp">
+                    <!-- <div class="hl-td">
+                        <div class="prize-order">1</div>
+                        <div class="prize-name">红包20元</div>
+                        <div class="prize-time">9.20/13:50</div>
+                        <div class="prize-pt">15</div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -156,13 +154,18 @@
             我的奖品
             <i id="prize_close" class="close"></i>
         </div>
-        <div class="p-content">
-            <article class="content-list">
+        <div class="p-content" id="myPrize-content">
+            <!-- <article class="content-list">
                 <div class="cl-item">
                     <img src="" class="fl">
                     <div class="cl-i-n fr">50积点</div>
                 </div>
             </article>
+            <div class="wdjp-tb">
+                <div>
+                    您还没有获得奖品。
+                </div> -->
+            </div>
         </div>
     </div>
     <!-- 未中奖 -->
@@ -173,6 +176,32 @@
         <img id="lottery-icon" src="" />
         <div>恭喜抽中50元京东卡</div>
         <i id="lottery_close" class="lottery-close"></i>
+    </div>
+    <!-- 实物 -->
+    <div id="entity_pop" class="entity" style="display: none;">
+        <div class="entity-bg">
+            <div class="entity-lottery-area">
+                <img src="" />
+            </div>
+            <div class="div-lottery-text">
+                恭喜抽中iphoneX
+            </div>
+            <div class="uw">
+                请留下您的联系方式和收货地址，方便奖品送到您的身边
+            </div>
+            <div class="el-input-item">
+                <div class="placeholder-name" style="visibility: hidden;">姓名</div>
+                <input type="text" class="el-input" placeholder="姓名"/>
+            </div>
+            <div class="el-input-item">
+                <div class="placeholder-name" style="visibility: hidden;">手机号</div>
+                <input type="number" class="el-input" placeholder="手机号"/>
+            </div>
+            <div class="el-input-item">
+                <div class="placeholder-name" style="visibility: hidden;">收货地址</div>
+                <input type="text" class="el-input" placeholder="收货地址"/>
+            </div>
+        </div>
     </div>
 
 
@@ -227,7 +256,7 @@
     <script src="./js/leftTime.js"></script>
     <script src="./js/awardRotate.js"></script>
     <script src="./js/turntable.js"></script>
-    <script src="./js/trunplateReq.js"></script>
+    <script src="./js/turnplateReq.js"></script>
     <script>
         $(function() {
 
@@ -344,56 +373,15 @@
 
             /************************  验证   ****************************/
 
-            /************************   中奖名单无缝滚动   **********************/
-
-            var $zj_list_container = $(".zj-list"),
-                $zj_ul = $zj_list_container.find('ul'),
-                $li_height = $zj_ul.find('li').eq(0).height(),
-                total_height = $li_height * 5,
-                zj_index = 0;
-
-                $zj_ul.css({
-                    height: total_height
+            $(".el-input").focus(function() {
+                $(this).siblings('.placeholder-name').css({
+                    visibility: 'visible'
                 });
-
-                function zjscroll() {
-                    $zj_ul.stop().animate({
-                        top: -zj_index * $li_height
-                    }, 400, function() {
-                        if(zj_index == $zj_ul.children().length -1) {
-                            $zj_ul.css({top:0});
-                            zj_index = 0;
-                        }
-                    });
-                }
-                
-                function next() {
-                    zj_index++;
-                    if(zj_index > $zj_ul.children().length - 1) {
-                        zj_index = 0;
-                    }
-                    zjscroll();
-                }
-                
-                setInterval(next,3000);
-              
-            /************************   中奖名单无缝滚动   **********************/
-
-
-            /*********************   倒计时     **************************/
-            var endTime = new Date('2018/10/29 22:20:00');
-
-            $.leftTime(endTime.getTime(),function(d){
-                if(d.status){
-                    $(".day").html(d.d);
-                    $(".hours").html(d.h);
-                    $(".minutes").html(d.m);
-                    $(".second").html(d.s);
-                }else {
-                    console.log("活动开始")
-                }
+            }).blur(function() {
+                $(this).siblings('.placeholder-name').css({
+                    visibility: 'hidden'
+                });
             });
-            /*********************   倒计时     **************************/
             
 
             /*****************************    弹框事件    ************************/
@@ -402,11 +390,7 @@
                 $("#active_pop").show();
                 $(".shadow").show();
             });
-            //我的奖品
-            $(".right-btn").on('click', function() {
-                $("#prize_pop").show();
-                $(".shadow").show();
-            });
+
             //活动规则关闭
             $("#active_close").on('click', function() {
                 $("#active_pop").hide();
@@ -437,76 +421,8 @@
             //img.src = './image/card.png';
             img.onload = function() {
                 $("#lottery-icon").attr('src', this.src);
-            }
+            };
             
-
-            var _turntable = new turntable();
-            //_turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝'];
-            _turntable.restaraunts = [{
-                activeNo: 's09827',
-                activeName: '20积点'
-            },{
-                activeNo: 's09527',
-                activeName: '$600'
-            },{
-                activeNo: 's029027',
-                activeName: '50积点'
-            },{
-                activeNo: 's096727',
-                activeName: '$20'
-            },{
-                activeNo: 's09927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's099927',
-                activeName: '¥50话费'
-            },{
-                activeNo: 's78227',
-                activeName: '京东卡'
-            },{
-                activeNo: 's0198227',
-                activeName: '爱奇艺vip'
-            },{
-                activeNo: 's0998927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's0992527',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's099890927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            }];
-
-            var randomNo = "s099927";
-                index = 0;
-
-            _turntable.init();
-
-            $("#choujiang").on('click',function() {
-                if(_turntable.bRotate) return;
-                _turntable.bRotate = !_turntable.bRotate;
-                for(var i=0; i<_turntable.restaraunts.length; i++) {
-                    if(randomNo == _turntable.restaraunts[i]['activeNo']) {
-                        index = i+1;
-                    }
-                }
-                _turntable.rotateFn(index, _turntable.restaraunts[index-1]);
-            });
 
         });
 

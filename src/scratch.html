@@ -7,13 +7,12 @@
         <link rel="stylesheet" href="./styles/commond.css">
         <link rel="stylesheet" href="./styles/scratch_a.css">
 </head>
-<body class="active_state ing"> 
+<body class="active_state"> 
         <div class="warp">
                 <div class="tm"></div>
                 <div class="ggl-arc">
-                        <img src="./image/scratch_a/ggl.png" class="ggl-title">
                         <div class="tips-group">
-                                <div class="count_down-warp nmg">
+                                <div class="count_down-warp" style="display: none">
                                         还有
                                         <div class="cd-item day">
                                         5
@@ -32,17 +31,17 @@
                                         </div>
                                         秒<span id="active_state">结束</span>
                                 </div>
-                                <div class="tips unstart_tips">
+                                <div class="tips unstart_tips" style="display: none">
                                         <div>
                                                 <img src="./image/scratch_a/broadcast.png" class="broadcast-img"> 活动尚未开始，敬请期待!
                                         </div>
                                 </div>
-                                <div class="tips over_tips">
+                                <div class="tips over_tips" style="display: none">
                                         <div>
                                                 <img src="./image/scratch_a/broadcast.png" class="broadcast-img"> 活动已结束，感谢关注!
                                         </div>
                                 </div>
-                                <div class="tips mg25 ing_tips">
+                                <div class="tips mg25 ing_tips" style="display: none">
                                         <div class="zj-list">
                                                 <ul>
                                                         <li>
@@ -68,19 +67,19 @@
                 <div class="uiw">
                         <div class="amsi">
                                 <div class="btn_group lg">
-                                        <img src="./image/scratch_a/left_btn.png" class="left-btn lg fl"/>
-                                        <img src="./image/scratch_a/right_btn.png" id="wdjp" class="right-btn lg fr"/>
+                                        <img src="./image/scratch_a/left_btn.png" class="left-btn fl"/>
+                                        <img src="./image/scratch_a/right_btn.png" id="wdjp" class="right-btn fr"/>
                                 </div>
                         </div>
                         <div class="gift">
                                 <div class="gua-area">
                                         <div class="guaguaqu">
-                                                <div class="ggq-unstart">
+                                                <div class="ggq-unstart" style="display: none">
                                                         <div class="tb">
                                                                 <div>活动尚未开始，敬请期待。</div>
                                                         </div>
                                                 </div>
-                                                <div class="ggq-ing">
+                                                <div class="ggq-ing" style="display: none;">
                                                         <div class="tb">
                                                                 <div>
                                                                         <a href="javascript:;" class="lottery_btn clickme"></a>
@@ -95,6 +94,7 @@
                                 奖品信息将通过短信发送至您手机，请留意查收哦！
                         </div>
                         <div class="award-decarl">
+                                <div class="ad-text">奖项说明</div>
                                 <div class="award-dec-list">
                                         <div class="adl">
                                                 <div class="fl">一等奖</div>
@@ -112,7 +112,7 @@
                         </div>
                         <!-- 历史记录 -->
                         <div class="history-list">
-                                <div class="click-area">
+                                <div class="click-area click-able">
                                         <span style="vertical-align: middle;">历史参与记录</span>
                                         <i class="arrow"></i>
                                 </div>
@@ -122,10 +122,12 @@
                                                 <div class="prize-name">获得奖品</div>
                                                 <div class="prize-time">刮卡时间</div>
                                         </div>
-                                        <div class="hl-td">
-                                                <div class="prize-order">1</div>
-                                                <div class="prize-name">红包20元</div>
-                                                <div class="prize-time">9.20/13:50</div>
+                                        <div id="joiner-td-warp">
+                                                <!-- <div class="hl-td">
+                                                        <div class="prize-order">1</div>
+                                                        <div class="prize-name">红包20元</div>
+                                                        <div class="prize-time">9.20/13:50</div>
+                                                </div> -->
                                         </div>
                                 </div>
                         </div>
@@ -178,7 +180,10 @@
         </div>
 
         <script src="./js/jquery.js"></script>
+        <script src="./js/common.js"></script>
+        <script src="./js/leftTime.js"></script>
         <script src="./js/scratchcard.min.js"></script>
+        <script src="./js/scratchReq.js"></script>
         <script>
                 $(function() {
 
