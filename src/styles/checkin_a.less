@@ -51,14 +51,7 @@ body.xy {
 }
 
 .ci-ti {
-    padding-top: 40px;
-    font-size: 60px;
-    color: #ff5555;
-    text-align: center;
-
-    &.chei-mon {
-        color: #ffefc2;
-    }
+    width: 100%;
 }
 
 .show-calendar {
@@ -72,8 +65,6 @@ body.xy {
         height: 100%;
         text-align: center;
         color: #4b4b4b;
-        background: url(../image/checkin_a/showcalendar.png) center center no-repeat;
-        background-size: 100%;
 
         .wdpt {
             padding-top: 70px;
@@ -83,24 +74,6 @@ body.xy {
             font-size: 36px;
             color: #757575;
         }
-    }
-    .left-icon {
-        position: absolute;
-        left: -100px;
-        bottom: 40px;
-        width: 112px;
-        height: 60px;
-        background: url(../image/checkin_a/money.png) center center no-repeat;
-        background-size: 100%;
-    }
-    .right-icon {
-        position: absolute;
-        right: -60px;
-        bottom: 40px;
-        width: 70px; 
-        height: 100px;
-        background: url(../image/checkin_a/sand.png) center center no-repeat;
-        background-size: 100%;
     }
 }
 
@@ -120,23 +93,20 @@ body.xy {
     right: 80px;
     width: 280px;
     height: 100px;
-    line-height: 100px;
-    border: 1px solid #fde071;
-    font-size: 40px;
-    color: #fde071;
-    border-radius: 100px;
-    text-align: center;
+    background: url(../image/checkin_a/wdjp.png) center center no-repeat;
+    background-size: 100%;
 }
 
 .ci-accumulate {
-    margin: 65px auto 0;
-    color: #fff8d5;
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    margin-left: -201px;
+    color: #ff4d4d;
     width: 402px;
     font-size: 28px;
     height: 402px;
     text-align: center;
-    background: url(../image/checkin_a/circle.png) center center no-repeat;
-    background-size: 100%;
 }
 
 .hdgz {
@@ -163,11 +133,15 @@ body.xy {
     vertical-align: middle;
 }
 
+.chw {
+    padding-top: 550px;
+}
+
 .checkin_wap {
     position: relative;
     width: 1100px;
     height: 1200px;
-    margin: 100px auto 0;
+    margin: 0 auto ;
     background: #fff url(../image/checkin_a/person.png) center bottom no-repeat;
     background-size: 75%;
     border-radius: 50px;
@@ -303,9 +277,9 @@ body.xy {
         .success-icon {
             display: inline-block;
             vertical-align: middle;
-            width: 52px;
-            height: 52px;
-            background: url(../image/checkin_a/qd-icon.png) center center no-repeat;
+            width: 264px;
+            height: 56px;
+            background: url(../image/checkin_a/checkin_success1.png) center center no-repeat;
             background-size: 100%;
         }
         span {
@@ -321,7 +295,7 @@ body.xy {
         width: 812px;
         height: 190px;
         margin: 0 auto;
-        background: url(../image/checkin_a/checkin-btn.png) center center no-repeat;
+        background: url(../image/checkin_a/checkin_btn1.png) center center no-repeat;
         background-size: 100%;
     }
 }
@@ -430,7 +404,7 @@ body.xy {
     height: 1000px;
     margin-left: -500px;
     background: rgba(0,0,0,.03);
-    box-shadow: 0 0 1000px #ffe5e5;   
+    box-shadow: 0 0 1000px #e1e1e1;   
 }
 
 .calendar-bg-z {
@@ -439,7 +413,7 @@ body.xy {
 }
 .chi-m-tips {
     padding-top: 50px;
-    color: #4f4f4f;
+    color: #4b4b4b;
     text-align: center;
     font-size: 36px;
 }
@@ -450,19 +424,18 @@ body.xy {
     line-height: 165px;
     border-radius: 165px;
     font-size: 68px;
-    color: #fff;
-    background: #ff6339;
+    background: url(../image/checkin_a/checkin_btn.png) center center no-repeat;
+    background-size: 100%;
     margin: 30px auto 0;
     text-align: center;
 }
 
 .shwn-success {
     display: block;
-    width: 800px;
+    width: 264px;
     height: 165px;
-    line-height: 165px;
-    font-size: 68px;
-    color: #ff6339;
+    background: url(../image/checkin_a/qdcg.png) center center no-repeat;
+    background-size: 100%;
     margin: 30px auto 0;
     text-align: center;
 }
@@ -485,41 +458,33 @@ body.xy {
             position: absolute;
             top: 74px;
             display: block;
-            width: 0;
-            height: 0;
+            width: 34px;
+            height: 40px;
 
             &.left {
                 left: 80px;
-                border-top: 22px solid transparent;
-                border-left: 40px solid transparent;
-                border-bottom: 22px solid transparent;
-                border-right: 40px solid #cfcfcf;
+                background: url(../image/checkin_a/arrow_unable.png) center center no-repeat;
+                background-size: 100%;
 
                 &.able {
-
-                    border-top: 22px solid transparent;
-                    border-left: 40px solid transparent;
-                    border-bottom: 22px solid transparent;
-                    border-right: 40px solid #ff6339;
-    
+                    background: url(../image/checkin_a/arrow.png) center center no-repeat;
+                    background-size: 100%;
                 }
             }
 
             &.right {
                 right: 80px;
-                border-top: 22px solid transparent;
-                border-left: 40px solid #cfcfcf;
-                border-bottom: 22px solid transparent;
-                border-right: 40px solid transparent;
+                background: url(../image/checkin_a/arrow_unable.png) center center no-repeat;
+                background-size: 100%;
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
 
 
                 &.able {
-
-                    border-top: 22px solid transparent;
-                    border-left: 40px solid #ff6339;
-                    border-bottom: 22px solid transparent;
-                    border-right: 40px solid transparent
-    
+                    background: url(../image/checkin_a/arrow.png) center center no-repeat;
+                    background-size: 100%;
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -577,7 +542,7 @@ body.xy {
                     line-height: 70px;
                     margin: 25% auto;
                     color: #fff;
-                    background: #ff6339;
+                    background: url(../image/checkin_a/active.png) center center no-repeat;
                     border-radius: 100%;
                 }
 
@@ -591,4 +556,13 @@ body.xy {
         }
 
     }
+}
+.chahua {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 610px;
+    background: url(../image/checkin_a/chahua.png) center center no-repeat;
+    background-size: 100%;
 }
