@@ -166,7 +166,7 @@ animation-duration: 3s;
     margin: 0 auto;
     text-align: center;
     font-size: 30px;
-    color: #fff;
+    color: #fff6c2;
 
     &.nmg {
         margin: 0 auto;
@@ -179,10 +179,10 @@ animation-duration: 3s;
         height: 96px;
         text-align: center;
         line-height: 96px;
-        color: #F64848;
+        color: #fff6c2;
         font-size: 60px;
-        background: url(../image/countdown/cd.png) center center no-repeat;
-        background-size: contain;
+        border-radius: 100%;
+        border: 1px solid #fff6c2;
     }
 
     &.cd-item:first-child {
@@ -249,6 +249,7 @@ animation-duration: 3s;
     
     &.lg {
         width: 1000px;
+        height: 1350px;
         margin-left: -500px;
     }
 
@@ -398,21 +399,71 @@ animation-duration: 3s;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1055px;
-    height: 1120px;
-    margin-left: -527px;
-    margin-top: -560px;
-    background: url(../image/turnplate_a/un_prize.png) center center no-repeat;
+    width: 848px;
+    height: 848px;
+    margin-left: -424px;
+    margin-top: -424px;
+    background: url(../image/pop/un_prize.png) center center no-repeat;
     background-size: 100%;
     z-index: 14;
 
+    &:after {
+        position: absolute;
+        content: '';
+        width: 848px;
+        height: 848px;
+        background: url(../image/pop/un_prize.png) center center no-repeat;
+        background-size: 100%;
+        z-index: 2;
+    }
+
+    &:before {
+        position: absolute;
+        content: '';
+        width: 848px;
+        height: 848px;
+        background: url(../image/pop/linght_ani.png) center center no-repeat;
+        background-size: 100%;
+        z-index: 1;
+        -webkit-animation-duration: 50s;
+        animation-duration: 50s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: rotateLight;
+        animation-name: rotateLight;
+    }
+
     i{
         display: block;
-        top: 240px;
-        left: 760px;
+        top: 20px;
+        right: 60px;
         position: absolute;
         width: 80px;
         height: 80px;
+    }
+}
+
+@-webkit-keyframes rotateLight {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateLight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -458,6 +509,7 @@ animation-duration: 3s;
             width: 810px;
             height: 165px;
             margin: 35px auto 10px;
+            border-bottom: 1px solid #7c7c7c;
 
             .placeholder-name {
                 color: #d0d0d0;
@@ -485,42 +537,73 @@ animation-duration: 3s;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1055px;
-    height: 1110px;
-    margin-left: -527px;
-    margin-top: -555px;
+    width: 848px;
+    height: 848px;
+    margin-left: -424px;
+    margin-top: -424px;
     z-index: 14;
-    background: url(../image/turnplate_a/lottery.png) center center no-repeat;
-    background-size: 100%;
-    z-index: 14;
+
+
+    &:after {
+        position: absolute;
+        content: '';
+        width: 848px;
+        height: 848px;
+        background: url(../image/pop/lottery.png) center center no-repeat;
+        background-size: 100%;
+        z-index: 2;
+    }
+
+    &:before {
+        position: absolute;
+        content: '';
+        width: 848px;
+        height: 848px;
+        background: url(../image/pop/linght_ani.png) center center no-repeat;
+        background-size: 100%;
+        z-index: 1;
+        -webkit-animation-duration: 50s;
+        animation-duration: 50s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-name: rotateLight;
+        animation-name: rotateLight;
+    }
 
     i {
         display: block;
-        top: 35px;
-        left: 832px;
+        top: 1px;
+        right: 9px;
         position: absolute;
         width: 95px;
         height: 95px;
+        z-index: 3;
     }
 
     div {
         position: absolute;
-        top: 475px;
-        left: 300px;
+        top: 350px;
+        left: 175px;
         width: 510px;
         color: #fff;
         font-size: 35px;
         text-align: center;
+        z-index: 3;
     }
 
     img{
         position: absolute;
-        top: 370px;
-        left: 560px;
+        top: 220px;
+        left: 420px;
         width: 100px;
         height: 100px;
         margin-left: -50px;
         margin-top: -50px;
+        z-index: 3;
     }
 }
 

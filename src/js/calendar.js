@@ -50,6 +50,7 @@ Calendar.prototype = {
             html+="<div class='day' data-date='"+ newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+(i+1) +"'><span>"+ (i+1) +"</span></div>";
         }
         //循环下个月的天数
+        console.log(lastDayWeekDay)
         for(var i=0; i<(7-lastDayWeekDay-1); i++) {
             html+="<div class='day gray'><span>"+ (i+1) +"</span></div>"
         }

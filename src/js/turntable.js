@@ -3,11 +3,11 @@ function turntable() {
     this.turnplate = [];
     this.big_circle_data = [];
     this.small_circle_data = [];
-    this.big_textRadius = 300;
-    this.small_textRadius = 300;
+    this.big_textRadius = 280;
+    this.small_textRadius = 280;
     this.bRotate = false;
     this.scale = 6;
-    this.colorsGroup = ['#ff6026', '#ffffff'];
+    this.colorsGroup = ['#d52c1f', '#ffffff'];
 }
 
 //16
@@ -83,7 +83,7 @@ turntable.prototype = {
         //圆的容器（包含小圆和大圆）
         ctx.fillStyle = 'rgba(255,255,255,.5)';
         ctx.beginPath();
-        ctx.arc(center,center,center-12*this.scale,0,2*Math.PI);
+        ctx.arc(center,center,center-20*this.scale,0,2*Math.PI);
         ctx.stroke();
         ctx.fill();
         
@@ -92,7 +92,7 @@ turntable.prototype = {
             var angle = 0 + i * arc;
             ctx.fillStyle = this.colorsGroup[i%2];
             ctx.beginPath();
-            ctx.arc(center, center, center-18*this.scale, angle, angle + arc, false);
+            ctx.arc(center, center, center-24*this.scale, angle, angle + arc, false);
             ctx.arc(center, center, 0, angle + arc, angle, true);
             ctx.stroke();
             ctx.fill();
@@ -108,7 +108,6 @@ turntable.prototype = {
                 ctx.font=12*this.scale/1.5 + "px Calibri";
             }
             var text = this.restaraunts[i]['activeName'];
-            //var text = this.restaraunts[i];
             if(this.restaraunts.length == 6){
                 ctx.translate(center + Math.cos(angle + arc / 2) * this.big_textRadius, center + Math.sin(angle + arc / 2) * this.big_textRadius);
                 ctx.rotate(angle + arc / 2 + Math.PI / 2);

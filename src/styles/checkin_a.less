@@ -463,28 +463,30 @@ body.xy {
 
             &.left {
                 left: 80px;
-                background: url(../image/checkin_a/arrow_unable.png) center center no-repeat;
-                background-size: 100%;
+                width: 0;
+                height: 0;
+                border-top: 22px solid transparent;
+                border-left: 40px solid transparent;
+                border-bottom: 22px solid transparent;
+                border-right: 40px solid #cfcfcf;
 
                 &.able {
-                    background: url(../image/checkin_a/arrow.png) center center no-repeat;
-                    background-size: 100%;
+                    border-right: 40px solid #ff6339;
                 }
             }
 
             &.right {
                 right: 80px;
-                background: url(../image/checkin_a/arrow_unable.png) center center no-repeat;
-                background-size: 100%;
-                -webkit-transform: rotate(180deg);
-                transform: rotate(180deg);
+                width: 0;
+                height: 0;
+                border-top: 22px solid transparent;
+                border-left: 40px solid #cfcfcf;
+                border-bottom: 22px solid transparent;
+                border-right: 40px solid transparent;
 
 
                 &.able {
-                    background: url(../image/checkin_a/arrow.png) center center no-repeat;
-                    background-size: 100%;
-                    -webkit-transform: rotate(180deg);
-                    transform: rotate(180deg);
+                    border-left: 40px solid #ff6339;
                 }
             }
         }
@@ -523,7 +525,7 @@ body.xy {
             overflow: hidden;
             font-size: 44px;
             .day {
-                margin-top: 40px;
+                margin-top: 20px;
                 width: 134px;
                 height: 120px;
                 line-height: 134px;

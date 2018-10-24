@@ -1,15 +1,15 @@
 
 var data = {
 	timeMark: "12",							//开始倒计时， 结束倒计时
-	startTime: '2018-10-22 16:07:00', 		//活动开始时间
-	endTime: '2018-10-22 16:18:00',   		//活动结束时间
-	startCdTime: '2018-10-22 13:10:00',		//开始倒计时时间
+	startTime: '2018-10-24 17:12:00', 		//活动开始时间
+	endTime: '2018-10-25 13:18:00',   		//活动结束时间
+	startCdTime: '2018-10-24 17:12:00',		//开始倒计时时间
 	endCdTime: '2018-10-22 14:00:00',		//结束倒计时时间
 	user: {
 		isJoinActivity: "1",      			//是否可参与对象 1可参与  2不能参与
 		availablePoints: 30000,				//可用积点数量
-		perConsumePoints: 100,					//每次消耗积点数量
-		remainder: 3000,							//剩余次数
+		perConsumePoints: 100,				//每次消耗积点数量
+		remainder: 3000,					//剩余次数
 	},
 	havePrize: '1',								//有没有奖品
 	isConsumePoints: '1',						//是否消耗积点  1消耗  2不消耗
@@ -88,6 +88,9 @@ function startActive(data) {
 		if(data.isConsumePoints == "1") {	//是不是消耗积点的
 			$("#point-number").show();
 			$("#choujiang-number").hide();
+			if(data.user.availablePoints - data.user.perConsumePoints < 0) {
+				$(".pt_unenough").show();   	//积点不足
+			}
 		}else {
 			$("#point-number").hide();
 			$("#choujiang-number").show();
@@ -230,7 +233,6 @@ function joinRecord() {
 
 joinRecord();
 
-
 	var _turntable = new turntable();
 	//_turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝'];
 	_turntable.restaraunts = [{
@@ -297,6 +299,11 @@ joinRecord();
 			}
 		}
 		_turntable.rotateFn(index, _turntable.restaraunts[index-1]);
+	});
+
+	$(".click-area").on('click', function() {
+		$(this).toggleClass('click-able');
+		$(".history-list-warp").toggle();
 	});
 
 

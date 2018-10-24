@@ -94,7 +94,6 @@
                 <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
                 <div class="chou-btn" id="choujiang"></div>
             </div>
-            <img src="../image/turnplate_a/ybd.png" class="ybd" />
         </div>
 
         <!-- 不能参与提示语 -->
@@ -164,8 +163,8 @@
             <div class="wdjp-tb">
                 <div>
                     您还没有获得奖品。
-                </div> -->
-            </div>
+                </div>
+            </div> -->
         </div>
     </div>
     <!-- 未中奖 -->
@@ -202,6 +201,7 @@
                 <input type="text" class="el-input" placeholder="收货地址"/>
             </div>
         </div>
+        <div class="validate_btn enable submit-btn">提交</div>
     </div>
 
 
@@ -209,6 +209,12 @@
     <div id="validate_pop" class="pop lg validate_pop" style="display: none;">
         <i id="validate_close" class="close_1 validate_close"></i>
         <form class="form-content">
+            <div class="form-item">
+                <div class="input-tips">
+                    <label class="success_tips" for="name">请输入姓名</label>
+                </div>
+                <input type="text" class="opcity-input" id="name" placeholder="请输入姓名"/>
+            </div> 
             <div class="form-item">
                 <div class="input-tips">
                     <label class="success_tips" for="phoneNumber">请输入手机号</label>
@@ -266,6 +272,7 @@
             var isSendMsgCode = false;                      //是否发送过短信验证码
             var Validate = new Array(3);
             var isValidate = false;
+            var isSending = false;                          //是否再发送中
             
 
             //验证手机号码
@@ -298,18 +305,25 @@
             //发送短信验证码
             $("#sendMsgCode").on('click', function() {
                 var msgCode = this;
-                isSendMsgCode = true;
-                $.leftTime(20,function(d){
-                    if(d.status) {
-                        $(msgCode).text(parseInt(d.m)*60+parseInt(d.s)+"s");
-                    }else {
-                        $(msgCode).text('重新发送');
-                    }
-                });
+                if(isSending) {
+                    return;
+                }else {
+                    isSending = true;
+                    //TODO   AJAX REQUEST
+                    $.leftTime(20,function(d){
+                        if(d.status) {
+                            $(msgCode).text(parseInt(d.m)*60+parseInt(d.s)+"s");
+                        }else {
+                            isSending = false;
+                            $(msgCode).text('重新发送');
+                        }
+                    });
+                }
             });
 
             //验证短信验证码
             $("#msgCode").on('blur', function(){
+                // TODO AJAX VALIDATE
                 Validate[1] = 1;
                 for(var i=0; i<Validate.length; i++) {
                     if(Validate[i] == 1){
@@ -408,6 +422,7 @@
             });
             //中奖关闭
             $("#lottery_close").on('click', function() {
+                console.log(23)
                 $("#lottery_pop").hide();
                 $(".shadow").hide();
             });

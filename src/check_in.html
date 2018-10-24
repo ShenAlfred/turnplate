@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./styles/checkin_a.css">
     <link rel="stylesheet" href="./styles/turn.css">
 </head>
-<body class="xy">
+<body class="">
+    <img src="./image/checkin_a/bg.png" class="bg1">
     <div class="warp">
         <img src="./image/checkin_a/chahua.png" class="chahua" />  
         <a href="javascript:;" class="help"></a>
@@ -386,6 +387,10 @@
                 $(".offset-warp").css({
                     top: 0
                 })
+            });
+
+            $("#cr-day-s").on('scroll', function() {
+                console.log($(this).scrollTop())
             });
 
         });  
