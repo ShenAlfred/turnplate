@@ -8,6 +8,7 @@ function turntable() {
     this.bRotate = false;
     this.scale = 6;
     this.colorsGroup = ['#d52c1f', '#ffffff'];
+    this.customTextColor;
 }
 
 //16
@@ -97,7 +98,7 @@ turntable.prototype = {
             ctx.stroke();
             ctx.fill();
             ctx.save(); 
-            ctx.fillStyle = this.colorsGroup[ (i%2)? (i%2)-1 : (i%2)+1 ];
+            ctx.fillStyle = this.customTextColor ? this.customTextColor[ (i%2)? (i%2)-1 : (i%2)+1 ] : this.colorsGroup[ (i%2)? (i%2)-1 : (i%2)+1 ];
             if(this.restaraunts.length == 6){
                 ctx.font=16*this.scale/1.5 + "px Calibri";
             }else if(this.restaraunts.length >=6 && this.restaraunts.length <=8) {

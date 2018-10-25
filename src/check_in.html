@@ -11,8 +11,7 @@
 <body class="">
     <img src="./image/checkin_a/bg.png" class="bg1">
     <div class="warp">
-        <img src="./image/checkin_a/chahua.png" class="chahua" />  
-        <a href="javascript:;" class="help"></a>
+        <img src="./image/checkin_a/help.png" class="help"/>
         <img src="./image/checkin_a/title.png" class="ci-ti" />
         <div class="ci-accumulate">
             <div class="tb">
@@ -27,7 +26,6 @@
         </div>
         <div class="chw">
             <div class="checkin_wap">
-                <div class="ca-head"></div>
                 <div class="in-b">
                     <div id="cr-day-s" class="cr-day-s">
                         <div class="offset-warp">
@@ -226,8 +224,8 @@
     </div>
 
     <!-- 抽奖弹窗 -->
-    <div class="turntable-pop" style="display: none;">
-        <i class="close"></i>
+    <div id="turntable-pop" class="turntable-pop" style="display: none;">
+        <i id="turntable-close" class="close"></i>
         <div class="golds pop-show">
             <img src="../image/turnplate/gold3.png" class="gold gold1 animated infinite slow downGoldRain delay-1s" alt="">
             <img src="../image/turnplate/gold3.png" class="gold gold2 animated infinite slower downGoldRain delay-3s" alt="">
@@ -242,7 +240,7 @@
         </div>
         <div class="turntable-warp" id="turntable-warp">
             <canvas id="canvas" width="200" height="200"></canvas>
-            <img class="turntable_bg" src="../image/turnplate/turntable_bg.png" alt="">
+            <img class="turntable_bg" src="../image/turnplate/general/turntable_bg.png" alt="">
             <div class="chou-btn" id="choujiang"></div>
         </div>
         <div class="yuwi">
@@ -303,6 +301,8 @@
         $(function() {
         
             var _turntable = new turntable();
+            _turntable.colorsGroup[0] = "#ffd800";
+            _turntable.customTextColor = ["#ff4419", "#ff4419"];
             _turntable.restaraunts = [{
                 activeNo: 's09827',
                 activeName: '20积点'
@@ -327,30 +327,6 @@
             },{
                 activeNo: 's0198227',
                 activeName: '爱奇艺vip'
-            },{
-                activeNo: 's0998927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's0992527',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's099890927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
-            },{
-                activeNo: 's08927',
-                activeName: '谢谢参与'
             }];
 
             var randomNo = "s099927";
@@ -391,6 +367,12 @@
 
             $("#cr-day-s").on('scroll', function() {
                 console.log($(this).scrollTop())
+            });
+
+            $("#turntable-close").on('click', function() {
+                console.log(111)
+                $("#turntable-pop").hide();
+                $(".shadow").hide();
             });
 
         });  

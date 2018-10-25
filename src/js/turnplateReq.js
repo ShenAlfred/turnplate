@@ -1,17 +1,17 @@
 
 var data = {
 	timeMark: "12",							//开始倒计时， 结束倒计时
-	startTime: '2018-10-24 17:12:00', 		//活动开始时间
-	endTime: '2018-10-25 13:18:00',   		//活动结束时间
+	startTime: '2018-10-25 13:26:00', 		//活动开始时间
+	endTime: '2018-10-25 15:00:00',   		//活动结束时间
 	startCdTime: '2018-10-24 17:12:00',		//开始倒计时时间
-	endCdTime: '2018-10-22 14:00:00',		//结束倒计时时间
+	endCdTime: '2018-10-25 13:28:00',		//结束倒计时时间
 	user: {
 		isJoinActivity: "1",      			//是否可参与对象 1可参与  2不能参与
 		availablePoints: 30000,				//可用积点数量
 		perConsumePoints: 100,				//每次消耗积点数量
 		remainder: 3000,					//剩余次数
 	},
-	havePrize: '1',								//有没有奖品
+	havePrize: '1',								//有没有奖品  1有  0没有
 	isConsumePoints: '1',						//是否消耗积点  1消耗  2不消耗
 	otherShow: "1"								//是否显示其他中奖人信息
 }
@@ -162,42 +162,6 @@ function endActive(data) {
 	$(".un-click-area").show();					//抽奖可点区域
 }
 
-
-//我的奖品
-$(".right-btn").on('click', function() {
-	//我的奖品
-	var myPrize = [{
-		couponIcon: '',
-		couponName: '手机',
-	},{
-		couponIcon: '',
-		couponName: '话费',	
-	},{
-		couponIcon: '',
-		couponName: '购物卡',	
-	},{
-		couponIcon: '',
-		couponName: '爱奇艺VIP会员',	
-	},{
-		couponIcon: '',
-		couponName: '京东卡',	
-	},{
-		couponIcon: '',
-		couponName: '积分',	
-	}];
-	var _html = '';
-	if(myPrize.length) {
-		for(var i = 0;i<myPrize.length; i++) {
-			_html += '<article class="content-list"><div class="cl-item"><img src="'+ myPrize[i].couponIcon +'" class="fl"><div class="cl-i-n fr">'+ myPrize[i].couponName +'</div></div></article>'
-		}
-	}else{
-		_html = '<div class="wdjp-tb"><div>您还没有获得奖品。</div></div>';
-	}
-	$("#myPrize-content").html(_html);
-	$("#prize_pop").show();
-	$(".shadow").show();
-});
-
 //我参与记录
 function joinRecord() {
 	var data = [
@@ -308,30 +272,124 @@ joinRecord();
 
 
 /***** 测试皮肤 */
-// var theme = 'skyblue';
+var themebg_color = '#4fcdf7';
+var general_color = '#0e54b4';
 $("body").css({
-	background: '#f03839'
+	background: themebg_color
 });
-// $("body").addClass(theme);
-// $(".bg1").attr('src', '../image/turnplate_a/skyblue/bg.png');
-// $(".broadcast-img").attr('src', '../image/turnplate_a/skyblue/msg.png');
-// $(".title").attr('src', '../image/turnplate_a/skyblue/title.png');
-// $(".left-btn").attr('src', '../image/turnplate_a/skyblue/left_btn.png');
-// $(".right-btn").attr('src', './image/turnplate_a/skyblue/right_btn.png');
-// $(".turntable_bg").attr('src', '../image/turnplate/skyblue/turntable_bg.png');
-// $(".ybd").attr('src', '../image/turnplate_a/skyblue/ybd.png');
-// $(".cd-item").css({
-// 	background: "url('../image/countdown/skyblue/cd.png') center center no-repeat",
-// 	backgroundSize: '100%'
-// });
-// $(".chou-btn").css({
-// 	background: "url('../image/trunplate/skyblue/chou_btn.png') center center no-repeat",
-// 	backgroundSize: '100%'
-// });
-// $(".turntable_bg").css({
-// 	boxShadow: '0 0 60px #2b5dce'
-// });
-// $(".chou-btn").css({
-// 	background: 'url("../image/turnplate/skyblue/chou_btn.png") center center no-repeat',
-//     backgroundSize: '100%'
-// });
+$(".bg1").attr('src', '../image/turnplate_a/skyblue/bg.png');
+$(".broadcast-img").attr('src', '../image/turnplate_a/skyblue/msg.png');
+$(".title").attr('src', '../image/turnplate_a/skyblue/title.png');
+$(".left-btn").attr('src', '../image/turnplate_a/skyblue/left_btn.png');
+$(".right-btn").attr('src', './image/turnplate_a/skyblue/right_btn.png');
+$(".turntable_bg").attr('src', '../image/turnplate/skyblue/turntable_bg.png');
+$(".cd-item").css({
+	borderColor: general_color,
+	color: general_color
+});
+$(".count_down-warp").css({
+	color: general_color
+});
+$(".tips").css({
+	color: general_color
+});
+$(".zj-list ul li").css({
+	color: general_color
+});
+$(".point-number").css({
+	color: general_color
+});
+$(".click-area").css({
+	color: general_color
+});
+$(".click-area .arrow").css({
+	borderLeftColor: general_color
+});
+$(".click-area.click-able .arrow").css({
+	borderLeftColor: general_color
+});
+$(".hl-td").css({
+	color: general_color
+});
+$(".hl-th").css({
+	color: general_color
+});
+$(".unjoin_tips").css({
+	color: general_color,
+	borderColor: general_color
+});
+$(".pt_unenough").css({
+	color: general_color,
+	borderColor: general_color
+});
+$(".chou-btn").css({
+	background: "url('../image/turnplate/skyblue/chou_btn.png') center center no-repeat",
+	backgroundSize: '100%'
+});
+
+
+
+/*****************************    弹框事件    ************************/
+	//活动规则
+	$(".left-btn").on('click', function() {
+		$("#active_pop").show();
+		$(".shadow").show();
+	});
+
+	//活动规则关闭
+	$("#active_close").on('click', function() {
+		$("#active_pop").hide();
+		$(".shadow").hide();
+	});
+	//我的奖品
+	$(".right-btn").on('click', function() {
+		//我的奖品
+		var myPrize = [{
+			couponIcon: '',
+			couponName: '手机',
+		},{
+			couponIcon: '',
+			couponName: '话费',	
+		},{
+			couponIcon: '',
+			couponName: '购物卡',	
+		},{
+			couponIcon: '',
+			couponName: '爱奇艺VIP会员',	
+		},{
+			couponIcon: '',
+			couponName: '京东卡',	
+		},{
+			couponIcon: '',
+			couponName: '积分',	
+		}];
+		var _html = '';
+		if(myPrize.length) {
+			for(var i = 0;i<myPrize.length; i++) {
+				_html += '<article class="content-list"><div class="cl-item"><img src="'+ myPrize[i].couponIcon +'" class="fl"><div class="cl-i-n fr">'+ myPrize[i].couponName +'</div></div></article>'
+			}
+		}else{
+			_html = '<div class="wdjp-tb"><div>您还没有获得奖品。</div></div>';
+		}
+		$("#myPrize-content").html(_html);
+		$("#prize_pop").show();
+		$(".shadow").show();
+	});
+	//我的奖品关闭
+	$("#prize_close").on('click', function() {
+		$("#prize_pop").hide();
+		$(".shadow").hide();
+
+	});
+	//未中奖关闭
+	$("#np_close").on('click', function() {
+		$("#np_pop").hide();
+		$(".shadow").hide();
+	});
+	//中奖关闭
+	$("#lottery_close").on('click', function() {
+		console.log(23)
+		$("#lottery_pop").hide();
+		$(".shadow").hide();
+	});
+/*****************************    弹框事件    ************************/
