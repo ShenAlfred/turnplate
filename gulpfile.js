@@ -79,6 +79,6 @@ gulp.task("watch", ["connect"], function () {
 
 gulp.task("clean", function (callback) {
     del(["build"], callback);
-})
+});
 
 gulp.task("default", ["copy", "less", "image", "js"]);
