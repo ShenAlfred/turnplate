@@ -11,6 +11,17 @@ function rnd(n, m){
 	return random;
 }
 
+//计算两时间差值
+function DateDiff(sDate1,  sDate2){
+    var  aDate,  oDate1,  oDate2,  iDays  
+    aDate  =  sDate1.split("-")  
+    oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0])    
+    aDate  =  sDate2.split("-")  
+    oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0])  
+    iDays  =  parseInt(Math.abs(oDate1  -  oDate2)  /  1000  /  60  /  60  /24)    
+    return  iDays  
+}
+
 //截取url后面的参数
 function GetRequest() {   
 	var url = location.search; //获取url中"?"符后的字串   
@@ -42,7 +53,8 @@ function GetRequest() {
 	 } 
  }
  
-function requestZJ() {
+
+ function requestZJ(msgUrl) {
 	var data = [
 		{
 			'phone': '135****7890',
@@ -72,7 +84,7 @@ function requestZJ() {
 	var $li_height = 0;
 
 	for(var i =0; i<data.length; i++) {
-		$zj_ul.append("<li>"+ data[i].phone + "抽中"+ data[i].prize +"奖品</li>");
+		$zj_ul.append("<li><img src='"+ msgUrl +"' class='broadcast-img'>"+ data[i].phone + "抽中"+ data[i].prize +"奖品</li>");
 	}
 
 	var $li_height = $zj_ul.find('li').eq(0).height(),

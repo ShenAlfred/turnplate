@@ -92,31 +92,38 @@
 }
 
 .gift {
+    position: relative;
     width: 100%;
-    padding-top: 485px;
-    height: 715px;
+    height: 1200px;
     margin-top: 30px;
-    background: url(../image/scratch_a/gift.png) center center no-repeat;
-    background-size: 100%;
+    .gift-img {
+        position: absolute;
+        width: 100%;
+    }
 }
 .gua-area {
     position: relative;
     margin: 50px auto;
+    padding-top: 550px;
     width: 830px;
     height: 470px;
 }
 .guaguaqu {
     position: relative;
-    width: 830px;
-    height: 470px;
+    width: 832px;
+    height: 472px;
     margin: 0 auto;
 }
 .award-decarl {
+    position: relative;
     margin: 55px auto 0;
     width: 100%;
     height: 520px;
-    background: url(../image/scratch_a/jxsm.png) center center no-repeat;
-    background-size: 100%;
+
+    .award-decarl-box {
+        position: absolute;
+        width: 100%;
+    }
 }
 .ad-text {
     padding-top: 20px;
@@ -248,19 +255,13 @@
     }
 }
 
-a.lottery_btn {
+.lottery_btn {
     display: inline-block;
     width: 350px;
-    height: 130px;
-    background: url(../image/scratch_a/zgyc.png) center center no-repeat;
-    background-size: 100%;
 }
-a.lottery_btn.clickme {
+.lottery_btn.clickme {
     display: inline-block;
     width: 350px;
-    height: 130px;
-    background: url(../image/scratch_a/dwgj.png) center center no-repeat;
-    background-size: 100%;
 }
 
 .ggq-unstart, .ggq-ing {
@@ -276,6 +277,8 @@ a.lottery_btn.clickme {
         width: 100%;
         height: 100%;
         text-align: center;
+        background: url(../image/scratch_a/xyggl.png) center center no-repeat;
+        background-size: 100%;  
         
         div {
             display: table-cell;

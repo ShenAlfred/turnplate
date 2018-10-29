@@ -91,9 +91,6 @@ body.xy {
     top: 155px;
     right: 80px;
     width: 280px;
-    height: 100px;
-    background: url(../image/checkin_a/wdjp.png) center center no-repeat;
-    background-size: 100%;
 }
 
 .ci-accumulate {
@@ -141,12 +138,17 @@ body.xy {
     width: 1100px;
     height: 1200px;
     margin: 0 auto ;
-    background: #fff url(../image/checkin_a/person.png) center bottom no-repeat;
-    background-size: 75%;
+    background: #fff;
     border-radius: 50px;
     box-shadow: 0 0 62px rgba(158,12,9,0.68);
 }
-
+.bghw {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 828px;
+    margin-left: -400px;
+}
 .ca-head {
     position: absolute;
     left: 50%;
@@ -165,7 +167,7 @@ body.xy {
 }
 
 .cr-day-s {
-    margin-top: 150px;
+    margin-top: 90px;
     width: 100%;
     height: 505px;
     overflow-x: hidden;
@@ -175,11 +177,11 @@ body.xy {
 .circle-day {
     position: relative;
     float: left;
-    width: 190px;
-    height: 190px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     border: 1px solid #666;
-    margin-left: 88px;
+    margin-left: 64px;
     margin-top: 30px;
     margin-bottom: 30px;
 
@@ -196,12 +198,6 @@ body.xy {
 
     &.active {
         border-color: #ff5555;
-
-        &::before {
-            position: absolute;
-            content: '';
-            background: #ff5555;
-        }
 
         .cd-inner {
             background: #ff5555;
@@ -235,18 +231,8 @@ body.xy {
         }
     }
 
-    &::before {
-        position: absolute;
-        content: '';
-        width: 88px;
-        height: 1px;
-        left: -88px;
-        background: #666;
-        top: 50%;
-    }
-
     &:nth-child(4n+1) {
-        margin-left: 20px;
+        margin-left: 40px;
     }
 
     &:nth-child(4n-3) {
@@ -272,34 +258,39 @@ body.xy {
         .checkin-btn {
             display: none;
         }
+
+        .shwn {
+            display: none;
+        }
+
+        .shwn-success {
+            display: block;
+        }
+    }
+
+    .shwn {
+        display: block;
+        width: 800px;
+        margin: 30px auto 0;
+    }
+    
+    .shwn-success {
+        display: none;
+        width: 264px;
+        margin: 30px auto 0;
     }
 
 
     .checkin-success-tip {
         display: none;
-        .success-icon {
-            display: inline-block;
-            vertical-align: middle;
-            width: 264px;
-            height: 56px;
-            background: url(../image/checkin_a/checkin_success1.png) center center no-repeat;
-            background-size: 100%;
-        }
-        span {
-            vertical-align: middle;
-            font-size: 64px;
-            color: #fff;
-            padding-left: 20px;
-        }
+        width: 264px;
+        margin: 0 auto;
     }
     
     .checkin-btn {
         display: block;
-        width: 812px;
-        height: 190px;
+        width: 800px;
         margin: 0 auto;
-        background: url(../image/checkin_a/checkin_btn1.png) center center no-repeat;
-        background-size: 100%;
     }
 }
 
@@ -416,28 +407,6 @@ body.xy {
     color: #4b4b4b;
     text-align: center;
     font-size: 36px;
-}
-.shwn {
-    display: block;
-    width: 800px;
-    height: 165px;
-    line-height: 165px;
-    border-radius: 165px;
-    font-size: 68px;
-    background: url(../image/checkin_a/checkin_btn.png) center center no-repeat;
-    background-size: 100%;
-    margin: 30px auto 0;
-    text-align: center;
-}
-
-.shwn-success {
-    display: block;
-    width: 264px;
-    height: 165px;
-    background: url(../image/checkin_a/qdcg.png) center center no-repeat;
-    background-size: 100%;
-    margin: 30px auto 0;
-    text-align: center;
 }
 .che-sw {
     margin-right: 10px;

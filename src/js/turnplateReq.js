@@ -1,10 +1,10 @@
 
 var data = {
 	timeMark: "12",							//开始倒计时， 结束倒计时
-	startTime: '2018-10-25 13:26:00', 		//活动开始时间
-	endTime: '2018-10-25 15:00:00',   		//活动结束时间
-	startCdTime: '2018-10-24 17:12:00',		//开始倒计时时间
-	endCdTime: '2018-10-25 13:28:00',		//结束倒计时时间
+	startTime: '2018-10-28 15:17:00', 		//活动开始时间
+	endTime: '2018-10-28 18:30:00',   		//活动结束时间
+	startCdTime: '2018-10-28 10:25:00',		//开始倒计时时间
+	endCdTime: '2018-10-28 10:27:00',		//结束倒计时时间
 	user: {
 		isJoinActivity: "1",      			//是否可参与对象 1可参与  2不能参与
 		availablePoints: 30000,				//可用积点数量
@@ -80,7 +80,7 @@ function startActive(data) {
 	$(".pt").text(data.user.availablePoints);
 	$(".nu").text(data.user.remainder);
 	if(data.otherShow == "1"){
-		requestZJ();
+		requestZJ('../image/turnplate_a/skyblue/msg.png'); 			//msg图片路径
 		$("#joiner-list").show();		//显示参与者获得奖品列表
 	}
 	$(".un-click-area").hide();		//抽奖可点击区域
@@ -128,6 +128,7 @@ function startActive(data) {
 		}else if(currentTime.getTime() >= new Date(data.endTime)) {
 			console.log("活动已经结束了");
 			$(".count_down-warp").show();
+			$("#active_state").text('结束');
 			endActive(data);
 		}
 	}else if(data.timeMark.indexOf("2") == "-1" || data.timeMark == "") {		//不需要显示倒计时时间
@@ -162,40 +163,39 @@ function endActive(data) {
 	$(".un-click-area").show();					//抽奖可点区域
 }
 
-//我参与记录
-function joinRecord() {
-	var data = [
-		{
-			consumablePoint: 100,
-			prizeName: '京东卡',
-			seq: 1,
-			time: '2018-8-2'
-		},
-		{
-			consumablePoint: 100,
-			prizeName: '面霜',
-			seq: 2,
-			time: '2018-8-2'
+	//我参与记录
+	function joinRecord() {
+		var data = [
+			{
+				consumablePoint: 100,
+				prizeName: '京东卡',
+				seq: 1,
+				time: '2018-8-2'
+			},
+			{
+				consumablePoint: 100,
+				prizeName: '面霜',
+				seq: 2,
+				time: '2018-8-2'
+			}
+		];
+		var _th_html = '';
+		var _html = '';
+		if(0) {	
+			_th_html = '<div class="hl-th"><div class="prize-order">序号</div><div class="prize-name">获得奖品</div><div class="prize-time">抽奖时间</div><div class="prize-pt">消耗积点</div></div>'	
+			for(var i =0; i<data.length; i++) {
+				_html += '<div class="hl-td"><div class="prize-order">'+ data[i].seq +'</div><div class="prize-name">'+ data[i].prizeName +'</div><div class="prize-time">'+ data[i].time +'</div><div class="prize-pt">'+ data[i].consumablePoint +'</div></div>';
+			}
+		}else {
+			_th_html = '<div class="hl-th"><div class="prize-order">序号</div><div class="prize-name">获得奖品</div><div class="prize-time">抽奖时间</div></div>'	
+			for(var i =0; i<data.length; i++) {
+				_html += '<div class="hl-td"><div class="prize-order">'+ data[i].seq +'</div><div class="prize-name">'+ data[i].prizeName +'</div><div class="prize-time">'+ data[i].time +'</div></div>';
+			}
 		}
-	];
-	var _th_html = '';
-	var _html = '';
-	if(0) {	
-		_th_html = '<div class="hl-th"><div class="prize-order">序号</div><div class="prize-name">获得奖品</div><div class="prize-time">抽奖时间</div><div class="prize-pt">消耗积点</div></div>'	
-		for(var i =0; i<data.length; i++) {
-			_html += '<div class="hl-td"><div class="prize-order">'+ data[i].seq +'</div><div class="prize-name">'+ data[i].prizeName +'</div><div class="prize-time">'+ data[i].time +'</div><div class="prize-pt">'+ data[i].consumablePoint +'</div></div>';
-		}
-	}else {
-		_th_html = '<div class="hl-th"><div class="prize-order">序号</div><div class="prize-name">获得奖品</div><div class="prize-time">抽奖时间</div></div>'	
-		for(var i =0; i<data.length; i++) {
-			_html += '<div class="hl-td"><div class="prize-order">'+ data[i].seq +'</div><div class="prize-name">'+ data[i].prizeName +'</div><div class="prize-time">'+ data[i].time +'</div></div>';
-		}
+		$("#joiner-th-warp").html(_th_html);
+		$("#joiner-td-warp").html(_html);
 	}
-	$("#joiner-th-warp").html(_th_html);
-	$("#joiner-td-warp").html(_html);
-}
-
-joinRecord();
+	joinRecord();
 
 	var _turntable = new turntable();
 	//_turntable.restaraunts = ["20积点","$600","50积点","$20","谢谢参与","$50话费","京东卡","爱奇艺vip",'红包', '元宝'];

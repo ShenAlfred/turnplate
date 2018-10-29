@@ -53,7 +53,7 @@ turntable.prototype = {
             angle: custom_angle
         });
     },
-    rotateFn: function (item, txt){
+    rotateFn: function (item, txt, fn){
         var that = this;
         var angles = item * (360 / that.restaraunts.length) - (360 / (that.restaraunts.length*2));
         if(angles<270){
@@ -67,6 +67,7 @@ turntable.prototype = {
             animateTo:angles+7200,
             duration: 8000,
             callback:function (){
+                fn && fn();
                 console.log(txt);
                 that.bRotate = !that.bRotate;
             }

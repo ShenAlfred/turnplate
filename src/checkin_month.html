@@ -27,7 +27,7 @@
                 </div>
             </div>
             <img src="./image/checkin_a/help.png" class="help">
-            <a href="javascript:;" class="wdjp"></a>
+            <img src="./image/checkin_a/wdjp.png" class="wdjp"></a>
         </div>
         <div class="chkm-middle">
             <div class="calendar-bg-shadow"></div>
@@ -64,9 +64,10 @@
         <div class="chi-m-tips">
             还差3天就能领取奖品哦
         </div>
-        <a href="javascript:;" class="shwn"></a>
-
-        <div class="shwn-success"></div>
+        <div class="checkin-area">
+            <img src="./image/checkin_a/checkin_btn.png" class="shwn" />
+            <img src="./image/checkin_a/qdcg.png" class="shwn-success" />
+        </div>
     </div>
 
 
@@ -146,36 +147,7 @@
     <script src="./js/awardRotate.js"></script>
     <script src="./js/turntable.js"></script>
     <script src="./js/calendar.js"></script>
-    <script>
-    
-        $(function() {
-
-            var current_data = new Date();
-            var _year = current_data.getFullYear();
-            var _month = current_data.getMonth();
-            var _date = current_data.getDate();
-            var month = _month;
-            var prev = $("#prevArrow");
-            var next = $("#nextArrow");
-
-            var calendar = new Calendar({
-                callback: function() {
-                    console.log("rendered....")    
-                },
-                prev: function() {
-                    month -= 1;
-                    calendar.drawCalendar(_year ,month, _date);
-                },
-                next: function() {
-                    month += 1;
-                    calendar.drawCalendar(_year ,month, _date);
-                }
-            });
-            calendar.init();
-
-        });
-
-    </script>
+    <script src="./js/checkinMonthReq.js"></script>
 
 </body>
 </html>

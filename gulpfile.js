@@ -65,7 +65,8 @@ gulp.task("connect", function () {
         port: 8000,
         root: "build",
         livereload: true,
-        host: '192.168.43.180',  //192.168.43.237
+        host: '192.168.43.180',
+        // host: '192.168.43.237'
     });
 });
 
