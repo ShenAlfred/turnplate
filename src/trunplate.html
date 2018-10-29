@@ -206,7 +206,7 @@
 
 
     <!-- 验证输入 -->
-    <div id="validate_pop" class="pop lg validate_pop" style="display: none;">
+    <div id="validate_pop" class="pop lg validate_pop" style="display: block;">
         <i id="validate_close" class="close_1 validate_close"></i>
         <form class="form-content">
             <div class="form-item">
@@ -240,6 +240,12 @@
             </div>  
         </form>
         <a href="javascript:;" class="validate_btn" id="validate_btn">提交</a>
+        <div class="xy">
+            <div class="checkbox"></div>
+            <div class="cb-txt">
+                兴业银行用户隐私保护条款
+            </div>
+        </div>
     </div>
 
     <!-- 当手机号对应多个客户信息时，再提示客户证件号验证 -->
@@ -270,7 +276,7 @@
 
             var phonereg = /^[1][3,4,5,7,8][0-9]{9}$/;
             var isSendMsgCode = false;                      //是否发送过短信验证码
-            var Validate = new Array(3);
+            var Validate = new Array(4);
             var isValidate = false;
             var isSending = false;                          //是否再发送中
             
@@ -331,6 +337,28 @@
                     }else {
                         isValidate = false;
                         return;
+                    }
+                }
+                if(isValidate) {
+                    $("#validate_btn").addClass('enable');
+                }else {
+                    $("#validate_btn").removeClass('enable');
+                }
+            });
+
+            $(".checkbox").on('click', function() {
+                $(this).toggleClass('active');
+                if($(this).hasClass('active')) {
+                    Validate[3] = 1;
+                }else {
+                    Validate[3] = 0;
+                }
+                for(var i=0; i<Validate.length; i++) {
+                    if(Validate[i] == 1){
+                        isValidate = true;
+                    }else {
+                        isValidate = false;
+                        break;
                     }
                 }
                 if(isValidate) {
@@ -407,6 +435,7 @@
             img.onload = function() {
                 $("#lottery-icon").attr('src', this.src);
             };
+            
             
 
         });
