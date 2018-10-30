@@ -127,26 +127,26 @@
     
         $(function() {        
 
-            // var col = 4;
-            // var index = Math.ceil(14/col)-1;
+            var col = 4;
+            var index = Math.ceil(14/col)-1;
             
-            // setTimeout(function() {
-            //     $(".offset-warp").css({
-            //         top: -(index *  21.433) + "vw"
-            //     });
-            // });
+            setTimeout(function() {
+                $(".offset-warp").css({
+                    top: -(index *  21.433) + "vw"
+                });
+            });
         
-            // $("#cr-day-s").scrollTop(Math.abs(parseInt($(".offset-warp").css('top'))));
+            $("#cr-day-s").scrollTop(Math.abs(parseInt($(".offset-warp").css('top'))));
 
-            // $("#cr-day-s").scroll(function() {
-            //     $(".offset-warp").css({
-            //         top: 0
-            //     })
-            // });
+            $("#cr-day-s").scroll(function() {
+                $(".offset-warp").css({
+                    top: 0
+                })
+            });
 
-            // $("#cr-day-s").on('scroll', function() {
-            //     console.log($(this).scrollTop())
-            // });
+            $("#cr-day-s").on('scroll', function() {
+                console.log($(this).scrollTop())
+            });
 
         });  
 

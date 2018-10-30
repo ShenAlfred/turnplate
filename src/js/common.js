@@ -41,7 +41,7 @@ function GetRequest() {
 	 var _timeStr = timeStr.split(" ");
 	 var date = _timeStr[0];
 	 var time = _timeStr[1];
-	 var data_split = date.split("-");
+	 var data_split = date.split("/");
 	 var time_split = time.split(":");
 	 return {
 		 year: data_split[0],

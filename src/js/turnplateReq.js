@@ -1,10 +1,10 @@
 
 var data = {
 	timeMark: "12",							//开始倒计时， 结束倒计时
-	startTime: '2018-10-28 15:17:00', 		//活动开始时间
-	endTime: '2018-10-28 18:30:00',   		//活动结束时间
-	startCdTime: '2018-10-28 10:25:00',		//开始倒计时时间
-	endCdTime: '2018-10-28 10:27:00',		//结束倒计时时间
+	startTime: '2018/10/29 19:40:00', 		//活动开始时间
+	endTime: '2018/10/29 20:30:00',   		//活动结束时间
+	startCdTime: '2018/10/28 10:25:00',		//开始倒计时时间
+	endCdTime: '2018/10/28 10:27:00',		//结束倒计时时间
 	user: {
 		isJoinActivity: "1",      			//是否可参与对象 1可参与  2不能参与
 		availablePoints: 30000,				//可用积点数量
@@ -21,7 +21,7 @@ var currentTime = new Date();				//当前时间
 var date;									//开始时间截取的时间变量	
 var start_date;								//开始时间变量
 var end_date;								//结束时间变量
-if(data.timeMark.indexOf("1") != "-1") {					//显示开始倒计时
+if(data.timeMark.indexOf("1") != "-1") {				//显示开始倒计时
 	if(currentTime.getTime() < new Date(data.startCdTime).getTime()) { //当前时间小于开始倒计时时间(活动开始前)
 		$(".count_down-warp").hide();
 		date = splitDate(data.startTime);

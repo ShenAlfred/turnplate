@@ -2,10 +2,10 @@ $(function() {
 
     var data = {
         timeMark: "12",							//开始倒计时， 结束倒计时
-        startTime: '2018-2-25', 		        //活动开始时间
-        endTime: '2019-2-15',   		        //活动结束时间
-        startCdTime: '2018-10-24 17:12:00',		//开始倒计时时间
-        endCdTime: '2018-10-25 13:28:00',		//结束倒计时时间
+        startTime: '2018/2/25', 		        //活动开始时间
+        endTime: '2019/2/15',   		        //活动结束时间
+        startCdTime: '2018/10/24 17:12:00',		//开始倒计时时间
+        endCdTime: '2018/10/25 13:28:00',		//结束倒计时时间
         user: {
             isJoinActivity: "1",      			//是否可参与对象 1可参与  2不能参与
             availablePoints: 30000,				//可用积点数量
@@ -46,7 +46,7 @@ $(function() {
                     month -= 1;
                     var startTime = data.startTime.replace(/-/g,"/");
                     var d1 = new Date(Date.parse(startTime));   //开始时间
-                    var dd = new Date(_year,month, data.startTime.split('-')[2]);
+                    var dd = new Date(_year,month, data.startTime.split('/')[2]);
                     if(dd > d1) {
                         $("#prevArrow").addClass('able');
                         $("#nextArrow").addClass('able');
@@ -67,7 +67,7 @@ $(function() {
                     month += 1;
                     var endTime = data.endTime.replace(/-/g,"/");
                     var d1 = new Date(Date.parse(endTime));   //结束时间
-                    var dd = new Date(_year,month, data.endTime.split('-')[2]);
+                    var dd = new Date(_year,month, data.endTime.split('/')[2]);
                     if(dd < d1) {
                         $("#nextArrow").addClass('able');
                         $("#prevArrow").addClass('able');
